@@ -1,0 +1,211 @@
+=======================================================================================
+How it works: Detailed Documentation for CCRRT.cpp and MotionValidator.cpp
+=======================================================================================
+
+This document provides an in-depth explanation of the core logic, inputs, state/control spaces, and key parameters (especially chance constraint parameters like `psafe`) for the Chance-Constrained RRT (CCRRT) implementation and its supporting motion validation logic. The CCRRT algorithm extends the classic Rapidly-exploring Random Tree (RRT) approach to handle uncertainty in robot motion and obstacles, ensuring that planned paths meet a specified probability of safety.
+
+---------------------------------------------------------------------------------------
+Inputs and Problem Setup
+---------------------------------------------------------------------------------------
+
+This section describes the inputs and initial configuration required to run the CCRRT planner. The planner operates in a 2D environment where the robot's state is its position and its control is its velocity. Obstacles are defined as rectangles (and optionally circles), and the planner must find a path from a start to a goal state while avoiding these obstacles with high probability, as specified by the chance constraint parameter `psafe`.
+
+**Inputs:**
+- **State Space:** 2D position (x, y) in ℝ², represented by OMPL's `RealVectorStateSpace(2)`.
+  - **Bounds:** Both x and y are bounded, typically [-10, 10].
+- **Control Space:** 2D velocity (vx, vy) in ℝ², represented by OMPL's `RealVectorControlSpace(2)`.
+  - **Bounds:** Both vx and vy are bounded, typically [-2, 2].
+- **Obstacles:** A list of static obstacles (rectangles, possibly circles) defined by position, width, height, and (optionally) radius.
+- **Start State:** Example: (-8, -8)
+- **Goal State:** Example: (0, 0)
+- **Chance Constraint Parameter (`psafe`):** Probability threshold for safety, e.g., 0.99 means the planner seeks paths that are at least 99% likely to be collision-free.
+
+**Key OMPL Components:**
+- `SpaceInformation`: Encapsulates state and control spaces, validity checking, and propagation.
+- `SimpleSetup`: Helper for setting up and running the planner.
+- `Planner`: The CCRRT planner, which extends OMPL's RRT.
+
+---------------------------------------------------------------------------------------
+Implementation Overview
+---------------------------------------------------------------------------------------
+
+The implementation begins by setting up the geometric state space and control space for the robot. Specifically, the state space is a 2D position (x, y) in ℝ², represented using OMPL's `RealVectorStateSpace(2)`. The control space is a 2D velocity (vx, vy), represented using OMPL's `RealVectorControlSpace(2)`. Both spaces are bounded to reflect the robot's physical limits and the environment's size.
+
+The planner then initializes the obstacle list, start and goal states, and configures the CCRRT planner with the desired chance constraint parameter (`psafe`). The state propagator is set up to track both the mean and covariance of the robot's state, enabling chance-constrained planning. The state validity checker and motion validator are configured to enforce both deterministic and probabilistic (chance-constrained) collision avoidance. The planner is then run, and the resulting path, uncertainty information, and search tree are output for analysis and visualization.
+
+---------------------------------------------------------------------------------------
+Covariance Ellipse and Chance Constraints
+---------------------------------------------------------------------------------------
+
+A key concept in chance-constrained motion planning is the use of the **covariance ellipse** to represent uncertainty in the robot's state. As the robot moves, process noise and uncertainty in control cause its predicted position to become less certain. This uncertainty is mathematically captured by a covariance matrix, which describes the spread and orientation of the robot's possible positions.
+
+The **covariance ellipse** is a geometric interpretation of this matrix: it is an ellipse centered at the mean (expected) position, with its axes and shape determined by the eigenvalues and eigenvectors of the covariance matrix. The ellipse represents a region where the robot is likely to be found with a certain probability.
+
+In the CCRRT implementation, the planner uses the covariance ellipse to enforce chance constraints:
+- For each state, the planner computes the mean and covariance of the robot's position.
+- When checking for collisions with obstacles, the planner does not just check the mean position, but considers the entire covariance ellipse.
+- The planner calculates the probability that the robot's true position (given its uncertainty) would collide with an obstacle.
+- The parameter `psafe` specifies the minimum acceptable probability of being collision-free. The planner only accepts states and motions where the probability of collision is less than `1 - psafe`.
+
+This approach allows the planner to generate paths that are robust to uncertainty, keeping the robot away from obstacles by a margin that depends on both the amount of uncertainty and the desired safety level.
+
+---------------------------------------------------------------------------------------
+Evaluation of Results: CC-RRT with Different p-safe Values
+---------------------------------------------------------------------------------------
+
+To assess the performance of the Chance-Constrained RRT (CC-RRT) algorithm, we conducted experiments using different values of the probability of safety (`psafe`). The values tested were 0.7, 0.9, 0.95, and 0.99. The evaluation focused on several key metrics:
+
+**1. Quality of Path**
+- As `psafe` increases, the planner generates paths that maintain a greater distance from obstacles, resulting in safer but potentially longer routes.
+- Lower `psafe` values allow the planner to take more direct (riskier) paths, which may be shorter but have a higher probability of collision.
+
+**2. Creation Time**
+- Higher `psafe` values generally increase the computation time required to find a solution, as the planner must search for paths that are robust to greater uncertainty and avoid a larger safety margin around obstacles.
+- For lower `psafe` values, the planner can find solutions more quickly due to relaxed safety requirements.
+
+**3. Smoothness of Path**
+- Paths generated with higher `psafe` values tend to be smoother, as the planner avoids sharp turns near obstacles to maintain a safe margin.
+- Lower `psafe` values may result in paths with more abrupt changes in direction, as the planner is willing to pass closer to obstacles.
+
+**4. Other Optimality Metrics**
+- **Path Length:** Increases with higher `psafe` due to detours around obstacles.
+- **Clearance:** The minimum distance to obstacles along the path is greater for higher `psafe`.
+- **Robustness:** Higher `psafe` values yield paths that are more robust to uncertainty in robot motion and sensing.
+- **Success Rate:** The probability of successfully reaching the goal without collision increases with `psafe`.
+
+**Summary Table (Qualitative):**
+
+| p-safe | Path Quality | Creation Time | Smoothness | Clearance | Robustness |
+|--------|--------------|--------------|------------|-----------|------------|
+| 0.70   | Shortest, riskier | Fastest      | Less smooth | Low       | Low        |
+| 0.90   | Moderate         | Moderate     | Moderate    | Moderate  | Moderate   |
+| 0.95   | Safer, longer    | Slower       | Smoother    | High      | High       |
+| 0.99   | Safest, longest  | Slowest      | Smoothest   | Highest   | Highest    |
+
+**Conclusion:**  
+The CC-RRT algorithm allows for flexible trade-offs between path optimality and safety by tuning the `psafe` parameter. Lower values favor shorter, riskier paths, while higher values prioritize safety and robustness at the cost of increased path length and computation time. The choice of `psafe` should be guided by the application's tolerance for risk and the level of uncertainty in the environment.
+
+---------------------------------------------------------------------------------------
+CCRRT.cpp
+---------------------------------------------------------------------------------------
+
+This section summarizes the main classes, data structures, and helper functions implemented in `CCRRT.cpp`. The CCRRT planner builds a tree of possible robot motions, propagating both the mean and uncertainty (covariance) of the robot's state at each step. The planner uses chance constraints to ensure that the probability of collision along the path remains below a user-specified threshold.
+
+**Global Variables**
+- `std::vector<Obstacle> staticObstacles;`
+  - Holds all static obstacles in the environment.
+
+**Structs and Classes**
+
+- `struct CCRRTNode`
+  - Represents a node in the CCRRT tree.
+  - Members:
+    - `state`: OMPL state pointer (robot configuration)
+    - `control`: OMPL control pointer (applied control)
+    - `parent`: Pointer to parent node
+    - `costSoFar`: Cumulative cost from root to this node
+    - `deltaMax`: Maximum per-step collision probability along the path (risk metric)
+    - `lowerBoundCostToGo`: Heuristic lower bound to goal (e.g., Euclidean distance)
+
+- `class CCRRT : public oc::RRT`
+  - Main planner class extending OMPL's RRT to support chance constraints.
+  - **Key Parameters:**
+    - `psafe_`: Probability threshold for safety (chance constraint). Higher values mean more conservative planning.
+    - `currentTime_`: Tracks simulation time for dynamic obstacles or uncertainty propagation.
+    - `stateUncertainty_`: Map from state key to mean/covariance/timestamp, used for chance constraint evaluation.
+    - `goalState_`: Pointer to goal state (for heuristic computation).
+  - **Key Methods:**
+    - `propagate`: Simulates robot motion and propagates uncertainty (mean/covariance) using linear dynamics and process noise. Updates the uncertainty map for each state.
+      - **Inputs:** start state, control, duration, result state.
+      - **Process:** Uses Eigen for matrix operations; adapts process noise based on proximity to obstacles.
+    - `tryExtend`: Attempts to extend the tree from a parent node using a control, enforcing all constraints (heuristics, monotonicity, dynamic feasibility, collision).
+      - **Checks:** Heuristic, monotonic cost, loop prevention, dynamic feasibility, state validity.
+    - `setGoalState`: Sets the goal state for heuristic computation.
+    - `getPlannerData`: Exports planner data for visualization/debugging.
+    - `getStateUncertainty`: Returns pointer to the uncertainty map for use by validators.
+
+- `class ChanceConstraintStateValidityChecker : public ob::StateValidityChecker`
+  - Checks if a state is valid under chance constraints.
+  - **Key Members:**
+    - `psafe_`: Probability threshold for safety.
+    - `stateUncertainty_`: Pointer to uncertainty map.
+  - **Key Method:**
+    - `isValid`: Checks for collision with static obstacles and evaluates chance constraints using the state's covariance.
+      - **Process:** For each obstacle, computes the probability of collision using the state's mean and covariance. Uses the `psafe` parameter to determine if the state is sufficiently safe.
+
+**Helper Functions**
+These functions support the main planning logic by providing utilities for node selection, pruning, heuristic computation, and feasibility checks. They help ensure the planner efficiently explores the state space while respecting chance constraints and dynamic feasibility.
+
+- `selectNodeToExpandRiskBiased`: Selects a node to expand, biased toward lower-risk nodes (lower `deltaMax`).
+- `shouldPrune`: Prunes nodes whose cost-to-go plus cost-so-far exceeds the best known solution.
+- `consistentHeuristic`: Computes a heuristic (Euclidean distance) between two states.
+- `isMonotonicProgress`: Ensures cost-so-far is non-decreasing along the path.
+- `createsLoop`: Checks for loops in the tree (should not occur in RRT).
+- `isDynamicallyFeasible`: Checks if a control is within velocity bounds.
+- `findNearestUncertainty`: Finds the nearest state in the uncertainty map to a query state (for output/analysis).
+
+**Main Function**
+The main function orchestrates the setup and execution of the planner. It defines the state and control spaces, places obstacles, configures the planner and its parameters, and runs the planning process. After planning, it outputs the solution path, uncertainty information, and search tree for analysis and visualization.
+
+---------------------------------------------------------------------------------------
+Specific Details in CCRRT.cpp
+---------------------------------------------------------------------------------------
+
+- **Uncertainty Propagation:** The `propagate` method in CCRRT.cpp not only moves the robot's mean state forward but also updates the covariance matrix, capturing how uncertainty grows as the robot moves, especially near obstacles.
+- **Adaptive Process Noise:** The process noise in the covariance update is scaled based on the robot's proximity to obstacles—higher noise near obstacles, lower in free space—making the planner more cautious in cluttered environments.
+- **Risk-Biased Node Selection:** The planner uses a risk-biased strategy to select which node to expand, preferring nodes with lower accumulated collision risk (`deltaMax`).
+- **Branch-and-Bound Pruning:** Nodes whose cost-to-go plus cost-so-far exceed the best known solution are pruned early, improving efficiency.
+- **Heuristic Consistency:** The planner uses a consistent heuristic (Euclidean distance) to the goal for informed search and pruning.
+- **Loop Prevention:** The planner checks for loops in the tree to ensure valid tree structure.
+- **Dynamic Feasibility:** Controls are checked to ensure they do not exceed velocity bounds, enforcing realistic robot dynamics.
+- **Output Files:** The planner writes not only the solution path but also the covariance at each state, the time at each state, and the entire search tree for post-analysis.
+
+---------------------------------------------------------------------------------------
+MotionValidator.cpp
+---------------------------------------------------------------------------------------
+
+This section describes the motion validation logic implemented in `MotionValidator.cpp`. The `CCRRTMotionValidator` class is responsible for checking whether a transition (motion) between two states is valid, considering both deterministic collisions and probabilistic (chance-constrained) safety. It samples intermediate states along each motion and ensures that each satisfies the required probability of safety.
+
+**Class: CCRRTMotionValidator**
+- Inherits from OMPL's `MotionValidator`.
+- **Purpose:** Checks if a motion (edge between two states) is valid under chance constraints.
+- **Key Members:**
+  - `psafe_`: Probability threshold for safety.
+  - `obstacles_`: List of static obstacles.
+  - `stateUncertainty_`: Pointer to uncertainty map.
+- **Key Methods:**
+  - `checkMotion`: Checks if the motion between two states is valid, considering collisions and chance constraints.
+    - **Process:** Samples intermediate states along the edge; for each, checks bounds, collision, and chance constraint using covariance and `psafe`.
+  - `setObstacles`: Sets the list of obstacles to check against.
+  - `setStateUncertainty`: Sets the pointer to the uncertainty map.
+
+**How it works:**
+The motion validator ensures that every segment of the planned path is safe with respect to both static obstacles and the specified chance constraint. By sampling along each edge and checking the probability of collision using the state's covariance, it prevents the planner from accepting risky motions that could violate the safety requirement.
+
+---------------------------------------------------------------------------------------
+Specific Details in MotionValidator.cpp
+---------------------------------------------------------------------------------------
+
+- **Intermediate State Sampling:** The `checkMotion` method samples multiple points along each edge (motion) to ensure that the entire path segment, not just the endpoints, satisfies the chance constraint.
+- **Chance Constraint Evaluation:** For each sampled state, the validator uses the covariance matrix to compute the probability of collision with each obstacle, enforcing the `psafe` threshold.
+- **Obstacle Handling:** Both rectangular and circular obstacles are supported, with appropriate geometric checks for each.
+- **Integration with Uncertainty Map:** The validator accesses the uncertainty map maintained by the planner to retrieve the covariance for each sampled state.
+- **Early Termination:** If any sampled state along a motion violates the chance constraint or collides with an obstacle, the motion is immediately rejected, preventing unsafe paths from being added to the tree.
+
+---------------------------------------------------------------------------------------
+Summary of Interactions and Key Parameters
+---------------------------------------------------------------------------------------
+
+This section explains how the different components interact to achieve chance-constrained motion planning. The CCRRT planner, state propagator, state validity checker, and motion validator work together to grow a tree of safe motions, using the uncertainty map and the `psafe` parameter to enforce probabilistic safety at every step.
+
+- The planner (CCRRT) grows a tree of nodes, each tracking state, control, cost, and uncertainty.
+- The state propagator in CCRRT updates both the mean and covariance of the robot's state, adapting process noise based on proximity to obstacles.
+- The state validity checker and motion validator use the uncertainty map to enforce chance constraints, ensuring the robot avoids obstacles with high probability as specified by `psafe`.
+- The main function sets up the environment, planner, and runs the planning process, outputting results for visualization and analysis.
+
+**Key Chance Constraint Parameter:**
+- `psafe` (Probability of Safety): Controls how conservative the planner is. Higher values (e.g., 0.99) mean the robot must be more certain to avoid obstacles, resulting in safer but possibly longer or more conservative paths.
+
+---------------------------------------------------------------------------------------
+End of Documentation
+---------------------------------------------------------------------------------------
