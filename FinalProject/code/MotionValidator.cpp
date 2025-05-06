@@ -19,23 +19,6 @@
 
 // Add these declarations
 extern std::vector<Obstacle> staticObstacles;
-extern std::vector<DynamicObstacle> dynamicObstacles;
-
-// Implementation of inverse complementary error function
-inline double erfcinv(double x) {
-    if (x >= 2.0) return -std::numeric_limits<double>::infinity();
-    if (x <= 0.0) return std::numeric_limits<double>::infinity();
-
-    const double pp = (x < 1.0) ? x : 2.0 - x;
-    const double t = std::sqrt(-2.0 * std::log(pp / 2.0));
-    double p = -0.70711 * ((2.30753 + t * 0.27061) / (1.0 + t * (0.99229 + t * 0.04481)) - t);
-
-    for (int i = 0; i < 2; i++) {
-        double err = std::erfc(p) - pp;
-        p += err / (1.12837916709551257 * std::exp(-p * p) - p * err);
-    }
-    return (x < 1.0) ? p : -p;
-}
 
 void UncertaintyManager::storeUncertainty(const ob::State* state, 
     const Eigen::VectorXd& mean, const Eigen::MatrixXd& cov, double timestamp) 
@@ -165,7 +148,6 @@ bool CCRRTMotionValidator::checkMotion(const ob::State* s1, const ob::State* s2)
         const auto *st = test->as<ob::RealVectorStateSpace::StateType>();
         Eigen::Vector2d stateVec(st->values[0], st->values[1]);
 
-        // --- FIX: Always use nearest timestamp for dynamic obstacle checks ---
         double t = 0.0;
         if (stateUncertainty_) {
             StateKey key = StateKey::fromState(test);
@@ -181,9 +163,18 @@ bool CCRRTMotionValidator::checkMotion(const ob::State* s1, const ob::State* s2)
             }
         }
 
-        // Check static obstacles (positions do not change)
+        // Check static obstacles (rectangular collision)
         for (const auto& obs : obstacles_) {
-            if (obs.isCircular()) {
+            if (!obs.isCircular()) {
+                double x = obs.getX(), y = obs.getY();
+                double w = obs.getWidth(), h = obs.getHeight();
+                if (stateVec[0] >= x && stateVec[0] <= x + w &&
+                    stateVec[1] >= y && stateVec[1] <= y + h) {
+                    si_->freeState(test);
+                    return false;
+                }
+            } else {
+                // Fallback for circles (should not occur)
                 Eigen::Vector2d obsCenter = obs.getCenter();
                 double obsRadius = obs.getRadius();
                 double d = (stateVec - obsCenter).norm();
@@ -194,19 +185,7 @@ bool CCRRTMotionValidator::checkMotion(const ob::State* s1, const ob::State* s2)
             }
         }
 
-        // Check dynamic obstacles at their correct position at time t
-        for (size_t idx = 0; idx < dynamicObstacles.size(); ++idx) {
-            const auto& dynObs = dynamicObstacles[idx];
-            Eigen::Vector2d obsCenter = dynObs.getPositionAtTime(t);
-            double obsRadius = dynObs.getRadius();
-            double d = (stateVec - obsCenter).norm();
-            if (d <= obsRadius) {
-                si_->freeState(test);
-                return false;
-            }
-        }
-
-        // Chance constraint check for all obstacles (static and dynamic) at correct time
+        // Chance constraint check for all obstacles (static only)
         if (stateUncertainty_) {
             StateKey key = StateKey::fromState(test);
             const CCRRTDetail::StateWithCovariance* unc = nullptr;
@@ -223,22 +202,17 @@ bool CCRRTMotionValidator::checkMotion(const ob::State* s1, const ob::State* s2)
             if (unc) {
                 // Static obstacles
                 for (const auto& obs : obstacles_) {
-                    if (obs.isCircular()) {
+                    if (!obs.isCircular()) {
                         if (!isChanceConstraintSatisfied(*unc, obs)) {
                             si_->freeState(test);
                             return false;
                         }
-                    }
-                }
-                // Dynamic obstacles at correct time
-                for (size_t idx = 0; idx < dynamicObstacles.size(); ++idx) {
-                    const auto& dynObs = dynamicObstacles[idx];
-                    Eigen::Vector2d obsCenter = dynObs.getPositionAtTime(unc->timestamp);
-                    double obsRadius = dynObs.getRadius();
-                    Obstacle tempObs(obsCenter[0], obsCenter[1], obsRadius);
-                    if (!isChanceConstraintSatisfied(*unc, tempObs)) {
-                        si_->freeState(test);
-                        return false;
+                    } else {
+                        // Fallback for circles (should not occur)
+                        if (!isChanceConstraintSatisfied(*unc, obs)) {
+                            si_->freeState(test);
+                            return false;
+                        }
                     }
                 }
             }
@@ -252,18 +226,4 @@ bool CCRRTMotionValidator::checkMotion(const ob::State* s1, const ob::State* s2,
     std::pair<ob::State*, double>& /*lastValid*/) const
 {
     return checkMotion(s1, s2);
-}
-
-bool CCRRTMotionValidator::isChanceConstraintSatisfied(const CCRRTDetail::StateWithCovariance& stateUnc,
-                                                      const Obstacle& obs) const {
-    Eigen::Vector2d mean = stateUnc.mean.head<2>();
-    Eigen::Matrix2d cov = stateUnc.covariance.block<2,2>(0, 0);
-    Eigen::Vector2d diff = obs.getCenter() - mean;
-    double dist = diff.norm();
-    double directionalVar = (dist > 1e-6) ?
-        (diff.normalized().transpose() * cov * diff.normalized()) :
-        cov.eigenvalues().real().maxCoeff();
-    double sigma = std::sqrt(directionalVar);
-    double beta = std::sqrt(2) * erfcinv(2 * (1 - psafe_));
-    return dist > obs.getRadius() + beta * sigma;
 }

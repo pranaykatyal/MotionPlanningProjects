@@ -26,6 +26,23 @@
 #include <vector>
 #include "Obstacles.h"
 
+// Utility: Inverse Complementary Error Function
+// Used for chance constraint calculations (Gaussian confidence intervals)
+inline double erfcinv(double x) {
+    if (x >= 2.0) return -std::numeric_limits<double>::infinity();
+    if (x <= 0.0) return std::numeric_limits<double>::infinity();
+
+    const double pp = (x < 1.0) ? x : 2.0 - x;
+    const double t = std::sqrt(-2.0 * std::log(pp / 2.0));
+    double p = -0.70711 * ((2.30753 + t * 0.27061) / (1.0 + t * (0.99229 + t * 0.04481)) - t);
+
+    for (int i = 0; i < 2; i++) {
+        double err = std::erfc(p) - pp;
+        p += err / (1.12837916709551257 * std::exp(-p * p) - p * err);
+    }
+    return (x < 1.0) ? p : -p;
+}
+
 // Move these lines above any use of ob::State
 namespace ob = ompl::base;
 namespace oc = ompl::control;
@@ -117,7 +134,33 @@ private:
     std::map<StateKey, CCRRTDetail::StateWithCovariance>* stateUncertainty_ = nullptr;
 
     bool isChanceConstraintSatisfied(const CCRRTDetail::StateWithCovariance& stateUnc,
-                                     const Obstacle& obs) const;
+                                     const Obstacle& obs) const {
+        Eigen::Vector2d mean = stateUnc.mean.head<2>();
+        Eigen::Matrix2d cov = stateUnc.covariance.block<2,2>(0, 0);
+        if (!obs.isCircular()) {
+            // Rectangle: use circumscribed circle for chance constraint
+            Eigen::Vector2d obsCenter = obs.getCenter();
+            double obsRadius = std::hypot(obs.getWidth()/2, obs.getHeight()/2);
+            Eigen::Vector2d diff = obsCenter - mean;
+            double dist = diff.norm();
+            double directionalVar = (dist > 1e-6) ?
+                (diff.normalized().transpose() * cov * diff.normalized()) :
+                cov.eigenvalues().real().maxCoeff();
+            double sigma = std::sqrt(directionalVar);
+            double beta = std::sqrt(2) * erfcinv(2 * (1 - psafe_));
+            return dist > obsRadius + beta * sigma;
+        } else {
+            // Fallback for circles (should not occur)
+            Eigen::Vector2d diff = obs.getCenter() - mean;
+            double dist = diff.norm();
+            double directionalVar = (dist > 1e-6) ?
+                (diff.normalized().transpose() * cov * diff.normalized()) :
+                cov.eigenvalues().real().maxCoeff();
+            double sigma = std::sqrt(directionalVar);
+            double beta = std::sqrt(2) * erfcinv(2 * (1 - psafe_));
+            return dist > obs.getRadius() + beta * sigma;
+        }
+    }
 };
 
 #endif // MOTION_VALIDATOR_H

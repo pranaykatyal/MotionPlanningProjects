@@ -12,6 +12,7 @@ docker run -it -v "C:\Users\prana\OneDrive\Desktop\WPI\MotionPlanning\FinalProje
 
 # Install ffmpeg inside the Docker container (run this inside the container) needed to run /make videos
 apt-get update && apt-get install -y ffmpeg
-
+# main branch
 python3 ../visualize_path.py --pathfile solution_path.txt --obstacles obstacles.txt --trajectory obstacle_trajectory.txt --savevideo
-
+# static branch
+python3 ../visualize_path.py --pathfile solution_path.txt --obstacles obstacles.txt --savevideo

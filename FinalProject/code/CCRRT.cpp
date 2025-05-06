@@ -28,33 +28,13 @@
 #include <fstream>
 #include <functional>
 #include <vector>
+#include <random>
 
 // -----------------------------
 // Global Obstacle Containers
 // -----------------------------
 // staticObstacles: Obstacles that do not move (e.g., walls, fixed objects)
-// dynamicObstacles: Obstacles that move according to a known trajectory
 std::vector<Obstacle> staticObstacles;
-std::vector<DynamicObstacle> dynamicObstacles;
-
-// -----------------------------
-// Utility: Inverse Complementary Error Function
-// Used for chance constraint calculations (Gaussian confidence intervals)
-// -----------------------------
-inline double erfcinv(double x) {
-    if (x >= 2.0) return -std::numeric_limits<double>::infinity();
-    if (x <= 0.0) return std::numeric_limits<double>::infinity();
-
-    const double pp = (x < 1.0) ? x : 2.0 - x;
-    const double t = std::sqrt(-2.0 * std::log(pp / 2.0));
-    double p = -0.70711 * ((2.30753 + t * 0.27061) / (1.0 + t * (0.99229 + t * 0.04481)) - t);
-
-    for (int i = 0; i < 2; i++) {
-        double err = std::erfc(p) - pp;
-        p += err / (1.12837916709551257 * std::exp(-p * p) - p * err);
-    }
-    return (x < 1.0) ? p : -p;
-}
 
 // -----------------------------
 // OMPL Type Aliases
@@ -86,17 +66,19 @@ struct CCRRTNode {
         : state(s), control(c), parent(p), costSoFar(cost), deltaMax(delta), lowerBoundCostToGo(lb) {}
 };
 
-// Risk-biased node selection: override selectNodeToExtend
-// This function implements risk-biased selection by randomly rejecting a candidate node
-// with probability Δₘₐₓ(N) before sampling controls, biasing the tree growth away from risky branches.
-inline CCRRTNode* selectNodeToExtend(const std::vector<CCRRTNode*>& nodes, ompl::RNG& rng) {
-    while (true) {
+// Improved risk-biased node selection
+inline CCRRTNode* selectNodeToExpandRiskBiased(const std::vector<CCRRTNode*>& nodes, ompl::RNG& rng) {
+    const int maxTries = 10;
+    CCRRTNode* best = nodes[0];
+    for (auto* n : nodes)
+        if (n->deltaMax < best->deltaMax)
+            best = n;
+    for (int i = 0; i < maxTries; ++i) {
         CCRRTNode* candidate = nodes[rng.uniformInt(0, nodes.size() - 1)];
-        // Reject with probability Δₘₐₓ(N)
         if (rng.uniform01() > candidate->deltaMax)
             return candidate;
-        // else, try again
     }
+    return best; // fallback to lowest-risk node
 }
 
 // Branch-and-bound cost pruning: check lower-bound cost-to-go + cost-so-far
@@ -211,7 +193,19 @@ public:
         // Linear system matrices for uncertainty propagation
         Eigen::MatrixXd A = Eigen::MatrixXd::Identity(dim, dim);  // State transition matrix
         Eigen::MatrixXd B = Eigen::MatrixXd::Identity(dim, ctrl_dim);  // Control input matrix
-        Eigen::MatrixXd Pw = Eigen::MatrixXd::Identity(dim, dim) * 0.01;  // Process noise covariancee (reduced)
+
+        // Adaptive process noise: increase near obstacles, decrease in free space
+        double minObsDist = std::numeric_limits<double>::max();
+        const auto *s = start->as<ob::RealVectorStateSpace::StateType>();
+        Eigen::Vector2d pos(s->values[0], s->values[1]);
+        for (const auto& obs : staticObstacles) {
+            double d = (pos - obs.getCenter()).norm() - obs.getRadius();
+            if (d < minObsDist) minObsDist = d;
+        }
+        double noiseScale = 1.0;
+        if (minObsDist > 2.0) noiseScale = 0.2; // less noise in free space
+        else if (minObsDist < 0.5) noiseScale = 2.0; // more noise near obstacles
+        Eigen::MatrixXd Pw = Eigen::MatrixXd::Identity(dim, dim) * 0.01 * noiseScale;
 
         // Propagate mean state using linear dynamics (scaled by duration)
         Eigen::VectorXd nextMean = A * startVec + B * controlVec * duration;
@@ -236,21 +230,6 @@ public:
         // Propagate covariance: nextCov = A*prevCov*A^T + Pw
         Eigen::MatrixXd nextCov = A * prevCov * A.transpose() + Pw;
         stateUncertainty_[StateKey::fromState(result)] = {nextMean, nextCov, currentTime};
-
-        // Add additional uncertainty when near dynamic obstacles
-        for (const auto& dynObs : dynamicObstacles) {
-            Eigen::Vector2d obsPos = dynObs.getPositionAtTime(currentTime);
-            Eigen::Vector2d statePos(nextMean(0), nextMean(1));
-            double dist = (obsPos - statePos).norm();
-    
-            if (dist < 5.0) { // If within 5 units of a dynamic obstacle
-                double scaling = (5.0 - dist)/5.0; // Scale from 0 to 1
-                Eigen::Matrix2d obsUncertainty = Eigen::Matrix2d::Identity() * 
-                                                dynObs.getPositionUncertainty() * 
-                                                scaling;
-                nextCov.block<2,2>(0,0) += obsUncertainty;
-            }
-        }
     }
 
     // Planner data extraction (for visualization/debugging)
@@ -274,6 +253,13 @@ public:
         // Dynamic feasibility
         if (!isDynamicallyFeasible(parent->state, control, maxVel))
             return nullptr;
+
+        // State validity check
+        if (!si_->isValid(result))
+            return nullptr;
+        // Optionally, add a motion validity check here if needed:
+        // if (!si_->checkMotion(parent->state, result))
+        //     return nullptr;
 
         // All checks passed, create new node
         return new CCRRTNode(result, control, parent, cost, /*deltaMax*/0.0, h);
@@ -329,110 +315,78 @@ public:
         if (!si_->satisfiesBounds(state))
             return false;
 
-        // Get time for dynamic obstacle position
-        double time = 0.0;
-        auto key = StateKey::fromState(state);
-        if (stateUncertainty_->find(key) != stateUncertainty_->end()) {
-            time = (*stateUncertainty_)[key].timestamp;
-        }
-
-        // Check static obstacles (treat rectangles as circles for collision)
+        // Check static obstacles (rectangular collision)
         for (const auto& obs : staticObstacles) {
             Eigen::Vector2d stateVec(s->values[0], s->values[1]);
-            if (obs.isCircular()) {
+            if (!obs.isCircular()) {
+                double x = obs.getX(), y = obs.getY();
+                double w = obs.getWidth(), h = obs.getHeight();
+                if (stateVec[0] >= x && stateVec[0] <= x + w &&
+                    stateVec[1] >= y && stateVec[1] <= y + h)
+                    return false;
+            } else {
+                // Fallback for circles (should not occur)
                 double dist = (stateVec - obs.getCenter()).norm();
                 if (dist <= obs.getRadius())
                     return false;
-            } else {
-                // Rectangle: use circumscribed circle
-                Eigen::Vector2d obsCenter = obs.getCenter();
-                double obsRadius = std::hypot(obs.getWidth()/2, obs.getHeight()/2);
-                double dist = (stateVec - obsCenter).norm();
-                if (dist <= obsRadius)
-                    return false;
             }
-        }
-        
-        // Check dynamic obstacles at their position at time t
-        for (const auto& dynObs : dynamicObstacles) {
-            Eigen::Vector2d obsPosition = dynObs.getPositionAtTime(time);
-            Eigen::Vector2d stateVec(s->values[0], s->values[1]);
-            double dist = (stateVec - obsPosition).norm();
-            if (dist <= dynObs.getRadius())
-                return false;
         }
 
-        // If we have uncertainty information, check probabilistic constraints
-        if (stateUncertainty_->find(key) != stateUncertainty_->end()) {
-            const auto& uncertainty = (*stateUncertainty_)[key];
-            
-            // Check against static obstacles (treat rectangles as circles)
-            for (const auto& obs : staticObstacles) {
-                if (obs.isCircular()) {
-                    if (!isChanceConstraintSatisfied(uncertainty, obs))
-                        return false;
-                } else {
-                    // Rectangle: use circumscribed circle
-                    Eigen::Vector2d obsCenter = obs.getCenter();
-                    double obsRadius = std::hypot(obs.getWidth()/2, obs.getHeight()/2);
-                    Obstacle circObs(obsCenter[0], obsCenter[1], obsRadius);
-                    if (!isChanceConstraintSatisfied(uncertainty, circObs))
-                        return false;
+        // --- Add chance constraint collision check for covariance ellipse ---
+        if (stateUncertainty_) {
+            StateKey key = StateKey::fromState(state);
+            auto it = stateUncertainty_->find(key);
+            if (it != stateUncertainty_->end()) {
+                const auto& unc = it->second;
+                Eigen::Vector2d mean = unc.mean.head<2>();
+                Eigen::Matrix2d cov = unc.covariance.block<2,2>(0, 0);
+
+                for (const auto& obs : staticObstacles) {
+                    if (!obs.isCircular()) {
+                        // Rectangle: use circumscribed circle for chance constraint
+                        Eigen::Vector2d obsCenter = obs.getCenter();
+                        double obsRadius = std::hypot(obs.getWidth()/2, obs.getHeight()/2);
+                        Eigen::Vector2d diff = obsCenter - mean;
+                        double dist = diff.norm();
+                        double directionalVar = (dist > 1e-6) ?
+                            (diff.normalized().transpose() * cov * diff.normalized()) :
+                            cov.eigenvalues().real().maxCoeff();
+                        double sigma = std::sqrt(directionalVar);
+                        double beta = std::sqrt(2) * erfcinv(2 * (1 - psafe_));
+                        if (dist > obsRadius + 2.0) beta *= 0.7;
+                        if (dist <= obsRadius + beta * sigma)
+                            return false;
+                    } else {
+                        // Fallback for circles (should not occur)
+                        Eigen::Vector2d obsCenter = obs.getCenter();
+                        double obsRadius = obs.getRadius();
+                        Eigen::Vector2d diff = obsCenter - mean;
+                        double dist = diff.norm();
+                        double directionalVar = (dist > 1e-6) ?
+                            (diff.normalized().transpose() * cov * diff.normalized()) :
+                            cov.eigenvalues().real().maxCoeff();
+                        double sigma = std::sqrt(directionalVar);
+                        double beta = std::sqrt(2) * erfcinv(2 * (1 - psafe_));
+                        if (dist > obsRadius + 2.0) beta *= 0.7;
+                        if (dist <= obsRadius + beta * sigma)
+                            return false;
+                    }
                 }
             }
-            
-            // Check against dynamic obstacles at their position at time t
-            for (const auto& dynObs : dynamicObstacles) {
-                Eigen::Vector2d pos = dynObs.getPositionAtTime(time);
-                Obstacle tempObs(pos[0], pos[1], dynObs.getRadius());
-                if (!isChanceConstraintSatisfied(uncertainty, tempObs))
-                    return false;
-            }
         }
-        
+        // --- End chance constraint check ---
+
         return true;
     }
     
 private:
     double psafe_;
     std::map<StateKey, CCRRTDetail::StateWithCovariance>* stateUncertainty_;
-
-    // Helper: Checks chance constraint for a given state and obstacle
-    bool isChanceConstraintSatisfied(const CCRRTDetail::StateWithCovariance& stateUnc,
-                                   const Obstacle& obs) const {
-        Eigen::Vector2d mean = stateUnc.mean.head<2>();
-        Eigen::Matrix2d cov = stateUnc.covariance.block<2,2>(0, 0);
-        Eigen::Vector2d diff = obs.getCenter() - mean;
-        double dist = diff.norm();
-        double directionalVar = (dist > 1e-6) ? 
-            (diff.normalized().transpose() * cov * diff.normalized()) :
-            cov.eigenvalues().real().maxCoeff();
-        double sigma = std::sqrt(directionalVar);
-        double beta = std::sqrt(2) * erfcinv(2 * (1 - psafe_));
-        return dist > obs.getRadius() + beta * sigma;
-    }
 };
 
 // =======================================================================================
 // Helper Functions
 // =======================================================================================
-
-// Writes the trajectory of dynamic obstacles to a file for visualization
-void writeObstacleTrajectory(const std::vector<DynamicObstacle>& dynObstacles, 
-                           double maxTime, double timeStep) {
-    std::ofstream trajFile("obstacle_trajectory.txt");
-    
-    for (double t = 0; t <= maxTime; t += timeStep) {
-        for (size_t i = 0; i < dynObstacles.size(); ++i) {
-            Eigen::Vector2d pos = dynObstacles[i].getPositionAtTime(t);
-            double radius = dynObstacles[i].getRadius();
-            
-            trajFile << t << " " << i << " " 
-                    << pos[0] << " " << pos[1] << " " 
-                    << radius << "\n";
-        }
-    }
-}
 
 // Finds the nearest state in the uncertainty map to a query state
 const CCRRTDetail::StateWithCovariance* findNearestUncertainty(
@@ -467,6 +421,9 @@ const CCRRTDetail::StateWithCovariance* findNearestUncertainty(
 // =======================================================================================
 int main(int argc, char **argv)
 {
+    // --- Set psafe parameter here ---
+    const double psafe = 0.99;
+
     // 1) State Space: 2D position (x, y) in R^2
     //    - RealVectorStateSpace(2)
     //    - Bounds: [-10, 10] for both x and y
@@ -487,7 +444,7 @@ int main(int argc, char **argv)
 
     // 2) Create SpaceInformation & CCRRT planner
     auto si      = std::make_shared<oc::SpaceInformation>(space, cspace);
-    auto planner = std::make_shared<CCRRT>(si, /*psafe=*/0.98);
+    auto planner = std::make_shared<CCRRT>(si, psafe);
 
     // Set min/max control duration to avoid OMPL warning
     si->setMinMaxControlDuration(1, 50);
@@ -503,85 +460,88 @@ int main(int argc, char **argv)
         });
 
     // 4) Obstacles:
-    //    - staticObstacles: Fixed in space (e.g., a circle at (4,4))
-    //    - dynamicObstacles: Move along a known trajectory (velocity, initial/final position)
-    //    - Obstacles are written to file for visualization
-    // Static obstacle (the square at (4,4))
-    staticObstacles.push_back(Obstacle(4.0, 4.0, 1.0));
-    
-    
-    // Convert the rectangular obstacle to dynamic
-    // Initial position: (-4.0, 1.0)
-    // Final position: (4.0, 1.0) - moves to the right
-    // Velocity: Moving right at 0.5 units per secondd
-    dynamicObstacles.push_back(DynamicObstacle(
-        Eigen::Vector2d(-4.0, 1.0),  // Initial center
-        1.5,                         // Radius
-        Eigen::Vector2d(0.15, 0.0),  // Velocity
-        Eigen::Vector2d(4.0, 1.0)    // Final position
-    ));
+    //    - staticObstacles: Placed between start and goal (not behind goal)
+    staticObstacles.clear();
+    static const int NUM_STATIC_OBSTACLES = 7; // Increased from  7
+    static const double START_X = -8.0;
+    static const double START_Y = -8.0;
+    static const double GOAL_X = 0.0;
+    static const double GOAL_Y = 0.0;
 
-    // Convert the rectangular obstacle to dynamic
-    // Initial position: (-4.0, 1.0)
-    // Final position: (-4.0, 7.0) - moves upward
-    // Velocity: Moving up at 0.15 units per second
-    dynamicObstacles.push_back(DynamicObstacle(
-        Eigen::Vector2d(-4.0, 1.0),  // Initial center
-        1.5,                         // Radius
-        Eigen::Vector2d(0.0, 0.15),  // Velocity (upward)
-        Eigen::Vector2d(-4.0, 7.0)   // Final position (upward)
-    ));
+    // Place obstacles along the line from start to goal, with some spread and more spacing
+    double widths[NUM_STATIC_OBSTACLES]  = {2.0, 2.5, 3.0, 1.5, 2.2, 2.0, 2.5};
+    double heights[NUM_STATIC_OBSTACLES] = {1.0, 1.8, 1.2, 2.5, 2.0, 1.5, 1.7};
+    // More spacing: spread fractions more evenly and increase lateral offsets
+    double fractions[NUM_STATIC_OBSTACLES] = {0.15, 0.28, 0.42, 0.57, 0.71, 0.83, 0.92};
+    double lateral_offsets[NUM_STATIC_OBSTACLES] = {-2.5, 2.2, -1.7, 2.7, -2.2, 2.9, -2.8};
 
-    // Add a dynamic obstacle moving downward
-    // Initial position: (4.0, 7.0)
-    // Final position: (4.0, 1.0) - moves downward
-    // Velocity: Moving down at 0.15 units per second
-    dynamicObstacles.push_back(DynamicObstacle(
-        Eigen::Vector2d(7.0, 7.0),   // Initial center
-        1.5,                         // Radius
-        Eigen::Vector2d(0.0, -0.15), // Velocity (downward)
-        Eigen::Vector2d(7.0, -5.0)    // Final position (downward)
-    ));
+    Eigen::Vector2d start_eigen(START_X, START_Y);
+    Eigen::Vector2d goal_eigen(GOAL_X, GOAL_Y);
+    Eigen::Vector2d direction = (goal_eigen - start_eigen).normalized();
+    Eigen::Vector2d perp(-direction[1], direction[0]); // perpendicular vector
 
-    // Write obstacle definitions to file for visualization
+    for (int i = 0; i < NUM_STATIC_OBSTACLES; ++i) {
+        Eigen::Vector2d center = start_eigen + (goal_eigen - start_eigen) * fractions[i] + perp * lateral_offsets[i];
+        double x = center[0] - widths[i]/2;
+        double y = center[1] - heights[i]/2;
+        staticObstacles.push_back(Obstacle(x, y, widths[i], heights[i]));
+    }
+
+    // Write obstacle definitions to file for visualization (rectangles)
     {
         std::ofstream f("obstacles.txt");
-        // Static obstacles as circles: center_x, center_y, radius, "circle"
         for (auto &obs : staticObstacles)
-            f << obs.getX() << ","    // center x
-              << obs.getY() << ","    // center y
-              << obs.getRadius() << ",circle\n";
-              
-        // Initial position of dynamic obstacles (keep as before)
-        for (auto &obs : dynamicObstacles)
-            f << obs.getX()-obs.getRadius() << "," // left
-              << obs.getY()-obs.getRadius() << "," // top
-              << 2*obs.getRadius() << "," << 2*obs.getRadius() << " dynamic\n";
+            f << obs.getX() << ","    // lower-left x
+              << obs.getY() << ","    // lower-left y
+              << obs.getWidth() << "," // width
+              << obs.getHeight() << "\n"; // height
     }
 
     // 5) Start/Goal States:
     //    - Start: (-8, -8)
-    //    - Goal:  (7, 7)
+    //    - Goal:  (0, 0)
     ob::ScopedState<ob::RealVectorStateSpace> start(space), goal(space);
-    start[0] = -8; start[1] = -8;
-    goal[0]  =  7; goal[1]  =  7;
+    start[0] = START_X; start[1] = START_Y;
+    goal[0]  = GOAL_X;  goal[1]  = GOAL_Y;
+
+    // Use SimpleSetup's setStartAndGoalStates, not SpaceInformation's
+    oc::SimpleSetup ss(si);
+    ss.setPlanner(planner);
+
+    ss.setStartAndGoalStates(start, goal, /*threshold=*/0.1);
+
+    // --- Direct goal sampling if near the goal ---
+    // If the robot is within a certain distance to the goal, increase goal bias to 0.5
+    double near_goal_radius =0.5; // Radius around the goal to increase bias 
+    auto setGoalBiasIfNearGoal = [&](const ob::State *current) {
+        const auto *curr = current->as<ob::RealVectorStateSpace::StateType>();
+        double dx = curr->values[0] - goal[0];
+        double dy = curr->values[1] - goal[1];
+        double dist = std::sqrt(dx * dx + dy * dy);
+        if (dist < near_goal_radius) {
+            planner->setGoalBias(1.0); // Always sample the goal if near
+        } else {
+            planner->setGoalBias(0.1); // Default bias
+        }
+    };
+    // Example usage: call setGoalBiasIfNearGoal at the start and after each planning iteration
+    setGoalBiasIfNearGoal(start.get());
 
     // 6) SimpleSetup: OMPL helper for planning
-    oc::SimpleSetup ss(si);
     ss.setPlanner(planner);
 
     // 7) State Validity Checker:
     //    - Uses ChanceConstraintStateValidityChecker to check for collisions
-    //      with static/dynamic obstacles and chance constraints
+    //      with static obstacles and chance constraints
     si->setStateValidityChecker(
         std::make_shared<ChanceConstraintStateValidityChecker>(
-            si, /*psafe=*/0.98, reinterpret_cast<std::map<StateKey, CCRRTDetail::StateWithCovariance>*>(planner->getStateUncertainty())));
+            si, psafe, reinterpret_cast<std::map<StateKey, CCRRTDetail::StateWithCovariance>*>(planner->getStateUncertainty())));
 
     // 8) Motion Validator:
     //    - Uses CCRRTMotionValidator to check for valid motions (edges)
     //    - Checks collisions along the path between two states
-    //    - Handles static and dynamic obstacles, as well as chance constraints
-    auto mv = std::make_shared<CCRRTMotionValidator>(si, /*psafe=*/0.98);
+    //    - Handles static obstacles, as well as chance constraints
+    auto mv = std::make_shared<CCRRTMotionValidator>(si, psafe);
     // Only pass static obstacles to the motion validator
     mv->setObstacles(staticObstacles);
     // Cast to CCRRTDetail::StateWithCovariance*
@@ -594,8 +554,6 @@ int main(int argc, char **argv)
     si->setStateValidityCheckingResolution(0.02);
     si->setPropagationStepSize(0.1);
 
-    ss.setStartAndGoalStates(start, goal, /*threshold=*/1.0);
-
     // 10) Planning:
     //    - Runs the planner for up to 10 seconds
     //    - If a solution is found, writes the path, covariances, state times, and tree to files
@@ -607,26 +565,22 @@ int main(int argc, char **argv)
         return 0;
     }
 
-    // Write the obstacle trajectory for visualization
-    writeObstacleTrajectory(dynamicObstacles, planner->getCurrentTime(), 0.1);
-
     // Output files:
     // - solution_path.txt: Smoothed solution path (x, y)
     // - covariances.txt: Covariance matrices for each state in the path
     // - state_times.txt: Time at which each state is reached
     // - rrt_tree.txt: All edges in the RRT search tree
     // - obstacles.txt: Obstacle definitions for visualization
-    // - obstacle_trajectory.txt: Dynamic obstacle positions over time
     {
         std::ofstream pathFile("solution_path.txt");
         auto smooth = ss.getSolutionPath().asGeometric();
         smooth.interpolate(50); // Interpolate to 50 states
         for (std::size_t i = 0; i < smooth.getStateCount(); ++i)
         {
-            auto *st = smooth.getState(i)
-                           ->as<ob::RealVectorStateSpace::StateType>();
-            pathFile << st->values[0] << " "
-                     << st->values[1] << " 0 0\n";
+            const ob::State *st = smooth.getState(i);
+            const auto *rstate = st->as<ob::RealVectorStateSpace::StateType>();
+            pathFile << rstate->values[0] << " "
+                     << rstate->values[1] << " 0 0\n";
         }
         std::cout << "Path written to solution_path.txt\n";
     }
@@ -637,8 +591,6 @@ int main(int argc, char **argv)
         std::cout << "[INFO] Writing covariances...\n";
         auto raw = ss.getSolutionPath().asGeometric();
         std::size_t N = raw.getStateCount();
-        std::cout << "[INFO] Raw path has " << N << " states.\n";
-    
         auto *uncert = reinterpret_cast<std::map<StateKey, CCRRTDetail::StateWithCovariance>*>(planner->getStateUncertainty());
         try {
             for (std::size_t i = 0; i < N; ++i) {
