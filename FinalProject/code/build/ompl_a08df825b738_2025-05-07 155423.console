@@ -1,0 +1,1802 @@
+Info:    Beginning benchmark
+Info:    Preparing for run 0 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 272 states
+Info:    Preparing for run 1 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 128 states
+Info:    Preparing for run 2 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 289 states
+Info:    Preparing for run 3 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 318 states
+Info:    Preparing for run 4 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 138 states
+Info:    Preparing for run 5 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 107 states
+Info:    Preparing for run 6 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 223 states
+Info:    Preparing for run 7 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 283 states
+Info:    Preparing for run 8 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 98 states
+Info:    Preparing for run 9 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 166 states
+Info:    Preparing for run 10 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 198 states
+Info:    Preparing for run 11 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 76 states
+Info:    Preparing for run 12 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 348 states
+Info:    Preparing for run 13 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 400 states
+Info:    Preparing for run 14 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 440 states
+Info:    Preparing for run 15 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 87 states
+Info:    Preparing for run 16 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 293 states
+Info:    Preparing for run 17 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 130 states
+Info:    Preparing for run 18 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 304 states
+Info:    Preparing for run 19 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 320 states
+Info:    Preparing for run 20 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 141 states
+Info:    Preparing for run 21 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 71 states
+Info:    Preparing for run 22 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 397 states
+Info:    Preparing for run 23 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 161 states
+Info:    Preparing for run 24 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 864 states
+Info:    Preparing for run 25 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 324 states
+Info:    Preparing for run 26 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 270 states
+Info:    Preparing for run 27 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 153 states
+Info:    Preparing for run 28 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 123 states
+Info:    Preparing for run 29 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 186 states
+Info:    Preparing for run 30 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 244 states
+Info:    Preparing for run 31 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 146 states
+Info:    Preparing for run 32 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 84 states
+Info:    Preparing for run 33 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 381 states
+Info:    Preparing for run 34 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 157 states
+Info:    Preparing for run 35 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 123 states
+Info:    Preparing for run 36 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 444 states
+Info:    Preparing for run 37 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 288 states
+Info:    Preparing for run 38 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 64 states
+Info:    Preparing for run 39 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 273 states
+Info:    Preparing for run 40 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 112 states
+Info:    Preparing for run 41 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 103 states
+Info:    Preparing for run 42 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 679 states
+Info:    Preparing for run 43 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 107 states
+Info:    Preparing for run 44 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 68 states
+Info:    Preparing for run 45 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 50 states
+Info:    Preparing for run 46 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 719 states
+Info:    Preparing for run 47 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 361 states
+Info:    Preparing for run 48 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 182 states
+Info:    Preparing for run 49 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 93 states
+Info:    Preparing for run 50 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 141 states
+Info:    Preparing for run 51 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 332 states
+Info:    Preparing for run 52 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 195 states
+Info:    Preparing for run 53 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 924 states
+Info:    Preparing for run 54 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 236 states
+Info:    Preparing for run 55 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 116 states
+Info:    Preparing for run 56 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 218 states
+Info:    Preparing for run 57 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 420 states
+Info:    Preparing for run 58 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 197 states
+Info:    Preparing for run 59 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 171 states
+Info:    Preparing for run 60 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 332 states
+Info:    Preparing for run 61 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 265 states
+Info:    Preparing for run 62 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 464 states
+Info:    Preparing for run 63 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 779 states
+Info:    Preparing for run 64 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 324 states
+Info:    Preparing for run 65 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 240 states
+Info:    Preparing for run 66 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 200 states
+Info:    Preparing for run 67 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 353 states
+Info:    Preparing for run 68 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 318 states
+Info:    Preparing for run 69 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 205 states
+Info:    Preparing for run 70 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 288 states
+Info:    Preparing for run 71 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 178 states
+Info:    Preparing for run 72 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 94 states
+Info:    Preparing for run 73 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 76 states
+Info:    Preparing for run 74 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 281 states
+Info:    Preparing for run 75 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 205 states
+Info:    Preparing for run 76 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 137 states
+Info:    Preparing for run 77 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 201 states
+Info:    Preparing for run 78 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 151 states
+Info:    Preparing for run 79 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 45 states
+Info:    Preparing for run 80 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 248 states
+Info:    Preparing for run 81 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 588 states
+Info:    Preparing for run 82 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 164 states
+Info:    Preparing for run 83 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 150 states
+Info:    Preparing for run 84 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 100 states
+Info:    Preparing for run 85 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 159 states
+Info:    Preparing for run 86 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 155 states
+Info:    Preparing for run 87 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 62 states
+Info:    Preparing for run 88 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 116 states
+Info:    Preparing for run 89 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 448 states
+Info:    Preparing for run 90 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 65 states
+Info:    Preparing for run 91 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 296 states
+Info:    Preparing for run 92 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 68 states
+Info:    Preparing for run 93 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 240 states
+Info:    Preparing for run 94 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 245 states
+Info:    Preparing for run 95 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 186 states
+Info:    Preparing for run 96 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 191 states
+Info:    Preparing for run 97 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 71 states
+Info:    Preparing for run 98 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 188 states
+Info:    Preparing for run 99 of control_RRT
+Info:    RRT: Starting planning with 1 states already in datastructure
+Info:    RRT: Created 495 states
+Info:    Preparing for run 0 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 198 states
+Info:    Preparing for run 1 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 65 states
+Info:    Preparing for run 2 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 189 states
+Info:    Preparing for run 3 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 186 states
+Info:    Preparing for run 4 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 100 states
+Info:    Preparing for run 5 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 297 states
+Info:    Preparing for run 6 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 210 states
+Info:    Preparing for run 7 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 87 states
+Info:    Preparing for run 8 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 224 states
+Info:    Preparing for run 9 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 263 states
+Info:    Preparing for run 10 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 219 states
+Info:    Preparing for run 11 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 435 states
+Info:    Preparing for run 12 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 173 states
+Info:    Preparing for run 13 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 252 states
+Info:    Preparing for run 14 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 721 states
+Info:    Preparing for run 15 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 114 states
+Info:    Preparing for run 16 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 84 states
+Info:    Preparing for run 17 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 146 states
+Info:    Preparing for run 18 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 324 states
+Info:    Preparing for run 19 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 515 states
+Info:    Preparing for run 20 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 172 states
+Info:    Preparing for run 21 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 81 states
+Info:    Preparing for run 22 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 396 states
+Info:    Preparing for run 23 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 161 states
+Info:    Preparing for run 24 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 384 states
+Info:    Preparing for run 25 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 548 states
+Info:    Preparing for run 26 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 285 states
+Info:    Preparing for run 27 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 77 states
+Info:    Preparing for run 28 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 641 states
+Info:    Preparing for run 29 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 77 states
+Info:    Preparing for run 30 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 261 states
+Info:    Preparing for run 31 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 242 states
+Info:    Preparing for run 32 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 204 states
+Info:    Preparing for run 33 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 399 states
+Info:    Preparing for run 34 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 227 states
+Info:    Preparing for run 35 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 60 states
+Info:    Preparing for run 36 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 437 states
+Info:    Preparing for run 37 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 345 states
+Info:    Preparing for run 38 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 93 states
+Info:    Preparing for run 39 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 351 states
+Info:    Preparing for run 40 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 324 states
+Info:    Preparing for run 41 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 187 states
+Info:    Preparing for run 42 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 129 states
+Info:    Preparing for run 43 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 416 states
+Info:    Preparing for run 44 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 137 states
+Info:    Preparing for run 45 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 218 states
+Info:    Preparing for run 46 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 264 states
+Info:    Preparing for run 47 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 193 states
+Info:    Preparing for run 48 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 425 states
+Info:    Preparing for run 49 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 185 states
+Info:    Preparing for run 50 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 257 states
+Info:    Preparing for run 51 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 88 states
+Info:    Preparing for run 52 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 129 states
+Info:    Preparing for run 53 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 115 states
+Info:    Preparing for run 54 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 197 states
+Info:    Preparing for run 55 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 279 states
+Info:    Preparing for run 56 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 786 states
+Info:    Preparing for run 57 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 204 states
+Info:    Preparing for run 58 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 459 states
+Info:    Preparing for run 59 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 677 states
+Info:    Preparing for run 60 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 35 states
+Info:    Preparing for run 61 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 93 states
+Info:    Preparing for run 62 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 221 states
+Info:    Preparing for run 63 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 102 states
+Info:    Preparing for run 64 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 330 states
+Info:    Preparing for run 65 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 509 states
+Info:    Preparing for run 66 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 87 states
+Info:    Preparing for run 67 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 443 states
+Info:    Preparing for run 68 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 288 states
+Info:    Preparing for run 69 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 296 states
+Info:    Preparing for run 70 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 724 states
+Info:    Preparing for run 71 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 145 states
+Info:    Preparing for run 72 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 133 states
+Info:    Preparing for run 73 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 62 states
+Info:    Preparing for run 74 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 89 states
+Info:    Preparing for run 75 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 311 states
+Info:    Preparing for run 76 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 64 states
+Info:    Preparing for run 77 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 117 states
+Info:    Preparing for run 78 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 305 states
+Info:    Preparing for run 79 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 175 states
+Info:    Preparing for run 80 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 355 states
+Info:    Preparing for run 81 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 262 states
+Info:    Preparing for run 82 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 549 states
+Info:    Preparing for run 83 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 173 states
+Info:    Preparing for run 84 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 296 states
+Info:    Preparing for run 85 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 425 states
+Info:    Preparing for run 86 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 247 states
+Info:    Preparing for run 87 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 203 states
+Info:    Preparing for run 88 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 53 states
+Info:    Preparing for run 89 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 269 states
+Info:    Preparing for run 90 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 383 states
+Info:    Preparing for run 91 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 87 states
+Info:    Preparing for run 92 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 176 states
+Info:    Preparing for run 93 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 178 states
+Info:    Preparing for run 94 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 108 states
+Info:    Preparing for run 95 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 80 states
+Info:    Preparing for run 96 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 171 states
+Info:    Preparing for run 97 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 38 states
+Info:    Preparing for run 98 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 267 states
+Info:    Preparing for run 99 of control_CCRRT_psafe_0.500000
+Info:    CCRRT_psafe_0.500000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.500000: Created 142 states
+Info:    Preparing for run 0 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 251 states
+Info:    Preparing for run 1 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 309 states
+Info:    Preparing for run 2 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 195 states
+Info:    Preparing for run 3 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 77 states
+Info:    Preparing for run 4 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 115 states
+Info:    Preparing for run 5 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 77 states
+Info:    Preparing for run 6 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 149 states
+Info:    Preparing for run 7 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 262 states
+Info:    Preparing for run 8 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 464 states
+Info:    Preparing for run 9 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 250 states
+Info:    Preparing for run 10 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 222 states
+Info:    Preparing for run 11 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 389 states
+Info:    Preparing for run 12 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 95 states
+Info:    Preparing for run 13 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 116 states
+Info:    Preparing for run 14 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 132 states
+Info:    Preparing for run 15 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 213 states
+Info:    Preparing for run 16 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 388 states
+Info:    Preparing for run 17 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 498 states
+Info:    Preparing for run 18 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 133 states
+Info:    Preparing for run 19 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 208 states
+Info:    Preparing for run 20 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 120 states
+Info:    Preparing for run 21 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 183 states
+Info:    Preparing for run 22 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 484 states
+Info:    Preparing for run 23 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 80 states
+Info:    Preparing for run 24 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 83 states
+Info:    Preparing for run 25 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 424 states
+Info:    Preparing for run 26 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 105 states
+Info:    Preparing for run 27 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 706 states
+Info:    Preparing for run 28 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 165 states
+Info:    Preparing for run 29 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 118 states
+Info:    Preparing for run 30 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 236 states
+Info:    Preparing for run 31 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 410 states
+Info:    Preparing for run 32 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 228 states
+Info:    Preparing for run 33 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 163 states
+Info:    Preparing for run 34 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 155 states
+Info:    Preparing for run 35 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 586 states
+Info:    Preparing for run 36 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 118 states
+Info:    Preparing for run 37 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 160 states
+Info:    Preparing for run 38 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 67 states
+Info:    Preparing for run 39 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 389 states
+Info:    Preparing for run 40 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 81 states
+Info:    Preparing for run 41 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 85 states
+Info:    Preparing for run 42 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 216 states
+Info:    Preparing for run 43 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 122 states
+Info:    Preparing for run 44 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 641 states
+Info:    Preparing for run 45 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 91 states
+Info:    Preparing for run 46 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 310 states
+Info:    Preparing for run 47 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 714 states
+Info:    Preparing for run 48 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 263 states
+Info:    Preparing for run 49 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 250 states
+Info:    Preparing for run 50 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 351 states
+Info:    Preparing for run 51 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 98 states
+Info:    Preparing for run 52 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 114 states
+Info:    Preparing for run 53 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 351 states
+Info:    Preparing for run 54 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 177 states
+Info:    Preparing for run 55 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 218 states
+Info:    Preparing for run 56 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 269 states
+Info:    Preparing for run 57 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 75 states
+Info:    Preparing for run 58 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 100 states
+Info:    Preparing for run 59 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 292 states
+Info:    Preparing for run 60 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 72 states
+Info:    Preparing for run 61 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 351 states
+Info:    Preparing for run 62 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 201 states
+Info:    Preparing for run 63 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 84 states
+Info:    Preparing for run 64 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 81 states
+Info:    Preparing for run 65 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 149 states
+Info:    Preparing for run 66 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 183 states
+Info:    Preparing for run 67 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 181 states
+Info:    Preparing for run 68 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 148 states
+Info:    Preparing for run 69 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 80 states
+Info:    Preparing for run 70 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 305 states
+Info:    Preparing for run 71 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 526 states
+Info:    Preparing for run 72 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 265 states
+Info:    Preparing for run 73 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 445 states
+Info:    Preparing for run 74 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 162 states
+Info:    Preparing for run 75 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 207 states
+Info:    Preparing for run 76 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 486 states
+Info:    Preparing for run 77 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 145 states
+Info:    Preparing for run 78 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 260 states
+Info:    Preparing for run 79 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 356 states
+Info:    Preparing for run 80 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 214 states
+Info:    Preparing for run 81 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 130 states
+Info:    Preparing for run 82 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 71 states
+Info:    Preparing for run 83 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 197 states
+Info:    Preparing for run 84 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 341 states
+Info:    Preparing for run 85 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 430 states
+Info:    Preparing for run 86 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 401 states
+Info:    Preparing for run 87 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 139 states
+Info:    Preparing for run 88 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 555 states
+Info:    Preparing for run 89 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 518 states
+Info:    Preparing for run 90 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 121 states
+Info:    Preparing for run 91 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 234 states
+Info:    Preparing for run 92 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 382 states
+Info:    Preparing for run 93 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 938 states
+Info:    Preparing for run 94 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 380 states
+Info:    Preparing for run 95 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 333 states
+Info:    Preparing for run 96 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 47 states
+Info:    Preparing for run 97 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 290 states
+Info:    Preparing for run 98 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 297 states
+Info:    Preparing for run 99 of control_CCRRT_psafe_0.700000
+Info:    CCRRT_psafe_0.700000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.700000: Created 62 states
+Info:    Preparing for run 0 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 398 states
+Info:    Preparing for run 1 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 250 states
+Info:    Preparing for run 2 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 96 states
+Info:    Preparing for run 3 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 101 states
+Info:    Preparing for run 4 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 187 states
+Info:    Preparing for run 5 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 165 states
+Info:    Preparing for run 6 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 98 states
+Info:    Preparing for run 7 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 295 states
+Info:    Preparing for run 8 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 456 states
+Info:    Preparing for run 9 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 192 states
+Info:    Preparing for run 10 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 361 states
+Info:    Preparing for run 11 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 306 states
+Info:    Preparing for run 12 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 298 states
+Info:    Preparing for run 13 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 803 states
+Info:    Preparing for run 14 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 479 states
+Info:    Preparing for run 15 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 304 states
+Info:    Preparing for run 16 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 336 states
+Info:    Preparing for run 17 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 141 states
+Info:    Preparing for run 18 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 379 states
+Info:    Preparing for run 19 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 80 states
+Info:    Preparing for run 20 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 218 states
+Info:    Preparing for run 21 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 110 states
+Info:    Preparing for run 22 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 123 states
+Info:    Preparing for run 23 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 433 states
+Info:    Preparing for run 24 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 297 states
+Info:    Preparing for run 25 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 239 states
+Info:    Preparing for run 26 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 437 states
+Info:    Preparing for run 27 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 140 states
+Info:    Preparing for run 28 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 126 states
+Info:    Preparing for run 29 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 270 states
+Info:    Preparing for run 30 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 530 states
+Info:    Preparing for run 31 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 170 states
+Info:    Preparing for run 32 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 185 states
+Info:    Preparing for run 33 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 420 states
+Info:    Preparing for run 34 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 178 states
+Info:    Preparing for run 35 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 217 states
+Info:    Preparing for run 36 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 82 states
+Info:    Preparing for run 37 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 279 states
+Info:    Preparing for run 38 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 170 states
+Info:    Preparing for run 39 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 181 states
+Info:    Preparing for run 40 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 105 states
+Info:    Preparing for run 41 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 74 states
+Info:    Preparing for run 42 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 560 states
+Info:    Preparing for run 43 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 387 states
+Info:    Preparing for run 44 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 368 states
+Info:    Preparing for run 45 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 167 states
+Info:    Preparing for run 46 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 42 states
+Info:    Preparing for run 47 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 171 states
+Info:    Preparing for run 48 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 150 states
+Info:    Preparing for run 49 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 137 states
+Info:    Preparing for run 50 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 239 states
+Info:    Preparing for run 51 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 341 states
+Info:    Preparing for run 52 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 133 states
+Info:    Preparing for run 53 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 91 states
+Info:    Preparing for run 54 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 76 states
+Info:    Preparing for run 55 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 328 states
+Info:    Preparing for run 56 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 151 states
+Info:    Preparing for run 57 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 265 states
+Info:    Preparing for run 58 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 98 states
+Info:    Preparing for run 59 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 92 states
+Info:    Preparing for run 60 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 254 states
+Info:    Preparing for run 61 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 261 states
+Info:    Preparing for run 62 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 483 states
+Info:    Preparing for run 63 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 296 states
+Info:    Preparing for run 64 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 67 states
+Info:    Preparing for run 65 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 414 states
+Info:    Preparing for run 66 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 64 states
+Info:    Preparing for run 67 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 330 states
+Info:    Preparing for run 68 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 81 states
+Info:    Preparing for run 69 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 269 states
+Info:    Preparing for run 70 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 81 states
+Info:    Preparing for run 71 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 691 states
+Info:    Preparing for run 72 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 82 states
+Info:    Preparing for run 73 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 138 states
+Info:    Preparing for run 74 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 192 states
+Info:    Preparing for run 75 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 297 states
+Info:    Preparing for run 76 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 383 states
+Info:    Preparing for run 77 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 391 states
+Info:    Preparing for run 78 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 452 states
+Info:    Preparing for run 79 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 212 states
+Info:    Preparing for run 80 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 358 states
+Info:    Preparing for run 81 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 127 states
+Info:    Preparing for run 82 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 208 states
+Info:    Preparing for run 83 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 431 states
+Info:    Preparing for run 84 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 92 states
+Info:    Preparing for run 85 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 297 states
+Info:    Preparing for run 86 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 185 states
+Info:    Preparing for run 87 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 261 states
+Info:    Preparing for run 88 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 176 states
+Info:    Preparing for run 89 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 86 states
+Info:    Preparing for run 90 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 894 states
+Info:    Preparing for run 91 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 127 states
+Info:    Preparing for run 92 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 184 states
+Info:    Preparing for run 93 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 146 states
+Info:    Preparing for run 94 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 103 states
+Info:    Preparing for run 95 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 315 states
+Info:    Preparing for run 96 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 487 states
+Info:    Preparing for run 97 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 182 states
+Info:    Preparing for run 98 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 370 states
+Info:    Preparing for run 99 of control_CCRRT_psafe_0.900000
+Info:    CCRRT_psafe_0.900000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.900000: Created 95 states
+Info:    Preparing for run 0 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 245 states
+Info:    Preparing for run 1 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 106 states
+Info:    Preparing for run 2 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 123 states
+Info:    Preparing for run 3 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 122 states
+Info:    Preparing for run 4 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 130 states
+Info:    Preparing for run 5 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 96 states
+Info:    Preparing for run 6 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 120 states
+Info:    Preparing for run 7 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 301 states
+Info:    Preparing for run 8 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 104 states
+Info:    Preparing for run 9 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 248 states
+Info:    Preparing for run 10 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 239 states
+Info:    Preparing for run 11 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 298 states
+Info:    Preparing for run 12 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 280 states
+Info:    Preparing for run 13 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 221 states
+Info:    Preparing for run 14 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 346 states
+Info:    Preparing for run 15 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 704 states
+Info:    Preparing for run 16 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 215 states
+Info:    Preparing for run 17 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 393 states
+Info:    Preparing for run 18 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 402 states
+Info:    Preparing for run 19 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 131 states
+Info:    Preparing for run 20 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 331 states
+Info:    Preparing for run 21 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 124 states
+Info:    Preparing for run 22 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 225 states
+Info:    Preparing for run 23 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 371 states
+Info:    Preparing for run 24 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 592 states
+Info:    Preparing for run 25 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 403 states
+Info:    Preparing for run 26 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 165 states
+Info:    Preparing for run 27 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 53 states
+Info:    Preparing for run 28 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 266 states
+Info:    Preparing for run 29 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 183 states
+Info:    Preparing for run 30 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 182 states
+Info:    Preparing for run 31 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 180 states
+Info:    Preparing for run 32 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 74 states
+Info:    Preparing for run 33 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 303 states
+Info:    Preparing for run 34 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 391 states
+Info:    Preparing for run 35 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 198 states
+Info:    Preparing for run 36 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 349 states
+Info:    Preparing for run 37 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 214 states
+Info:    Preparing for run 38 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 373 states
+Info:    Preparing for run 39 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 168 states
+Info:    Preparing for run 40 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 224 states
+Info:    Preparing for run 41 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 62 states
+Info:    Preparing for run 42 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 328 states
+Info:    Preparing for run 43 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 302 states
+Info:    Preparing for run 44 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 170 states
+Info:    Preparing for run 45 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 430 states
+Info:    Preparing for run 46 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 633 states
+Info:    Preparing for run 47 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 249 states
+Info:    Preparing for run 48 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 421 states
+Info:    Preparing for run 49 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 90 states
+Info:    Preparing for run 50 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 103 states
+Info:    Preparing for run 51 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 158 states
+Info:    Preparing for run 52 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 208 states
+Info:    Preparing for run 53 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 622 states
+Info:    Preparing for run 54 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 144 states
+Info:    Preparing for run 55 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 389 states
+Info:    Preparing for run 56 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 193 states
+Info:    Preparing for run 57 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 229 states
+Info:    Preparing for run 58 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 318 states
+Info:    Preparing for run 59 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 107 states
+Info:    Preparing for run 60 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 111 states
+Info:    Preparing for run 61 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 132 states
+Info:    Preparing for run 62 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 357 states
+Info:    Preparing for run 63 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 514 states
+Info:    Preparing for run 64 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 274 states
+Info:    Preparing for run 65 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 164 states
+Info:    Preparing for run 66 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 349 states
+Info:    Preparing for run 67 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 190 states
+Info:    Preparing for run 68 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 316 states
+Info:    Preparing for run 69 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 444 states
+Info:    Preparing for run 70 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 240 states
+Info:    Preparing for run 71 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 306 states
+Info:    Preparing for run 72 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 552 states
+Info:    Preparing for run 73 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 538 states
+Info:    Preparing for run 74 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 179 states
+Info:    Preparing for run 75 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 203 states
+Info:    Preparing for run 76 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 340 states
+Info:    Preparing for run 77 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 106 states
+Info:    Preparing for run 78 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 280 states
+Info:    Preparing for run 79 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 324 states
+Info:    Preparing for run 80 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 1073 states
+Info:    Preparing for run 81 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 72 states
+Info:    Preparing for run 82 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 630 states
+Info:    Preparing for run 83 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 331 states
+Info:    Preparing for run 84 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 388 states
+Info:    Preparing for run 85 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 79 states
+Info:    Preparing for run 86 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 147 states
+Info:    Preparing for run 87 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 343 states
+Info:    Preparing for run 88 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 417 states
+Info:    Preparing for run 89 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 597 states
+Info:    Preparing for run 90 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 122 states
+Info:    Preparing for run 91 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 328 states
+Info:    Preparing for run 92 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 380 states
+Info:    Preparing for run 93 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 172 states
+Info:    Preparing for run 94 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 339 states
+Info:    Preparing for run 95 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 332 states
+Info:    Preparing for run 96 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 315 states
+Info:    Preparing for run 97 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 132 states
+Info:    Preparing for run 98 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 54 states
+Info:    Preparing for run 99 of control_CCRRT_psafe_0.950000
+Info:    CCRRT_psafe_0.950000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.950000: Created 415 states
+Info:    Preparing for run 0 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 89 states
+Info:    Preparing for run 1 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 279 states
+Info:    Preparing for run 2 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 83 states
+Info:    Preparing for run 3 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 161 states
+Info:    Preparing for run 4 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 261 states
+Info:    Preparing for run 5 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 76 states
+Info:    Preparing for run 6 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 357 states
+Info:    Preparing for run 7 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 133 states
+Info:    Preparing for run 8 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 193 states
+Info:    Preparing for run 9 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 164 states
+Info:    Preparing for run 10 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 436 states
+Info:    Preparing for run 11 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 88 states
+Info:    Preparing for run 12 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 230 states
+Info:    Preparing for run 13 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 61 states
+Info:    Preparing for run 14 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 158 states
+Info:    Preparing for run 15 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 299 states
+Info:    Preparing for run 16 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 357 states
+Info:    Preparing for run 17 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 78 states
+Info:    Preparing for run 18 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 631 states
+Info:    Preparing for run 19 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 181 states
+Info:    Preparing for run 20 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 619 states
+Info:    Preparing for run 21 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 396 states
+Info:    Preparing for run 22 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 162 states
+Info:    Preparing for run 23 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 124 states
+Info:    Preparing for run 24 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 377 states
+Info:    Preparing for run 25 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 422 states
+Info:    Preparing for run 26 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 361 states
+Info:    Preparing for run 27 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 182 states
+Info:    Preparing for run 28 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 148 states
+Info:    Preparing for run 29 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 163 states
+Info:    Preparing for run 30 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 374 states
+Info:    Preparing for run 31 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 248 states
+Info:    Preparing for run 32 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 254 states
+Info:    Preparing for run 33 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 422 states
+Info:    Preparing for run 34 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 77 states
+Info:    Preparing for run 35 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 173 states
+Info:    Preparing for run 36 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 290 states
+Info:    Preparing for run 37 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 421 states
+Info:    Preparing for run 38 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 99 states
+Info:    Preparing for run 39 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 76 states
+Info:    Preparing for run 40 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 71 states
+Info:    Preparing for run 41 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 108 states
+Info:    Preparing for run 42 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 188 states
+Info:    Preparing for run 43 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 57 states
+Info:    Preparing for run 44 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 214 states
+Info:    Preparing for run 45 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 192 states
+Info:    Preparing for run 46 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 320 states
+Info:    Preparing for run 47 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 73 states
+Info:    Preparing for run 48 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 294 states
+Info:    Preparing for run 49 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 85 states
+Info:    Preparing for run 50 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 122 states
+Info:    Preparing for run 51 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 122 states
+Info:    Preparing for run 52 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 97 states
+Info:    Preparing for run 53 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 142 states
+Info:    Preparing for run 54 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 574 states
+Info:    Preparing for run 55 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 174 states
+Info:    Preparing for run 56 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 669 states
+Info:    Preparing for run 57 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 123 states
+Info:    Preparing for run 58 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 646 states
+Info:    Preparing for run 59 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 250 states
+Info:    Preparing for run 60 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 76 states
+Info:    Preparing for run 61 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 260 states
+Info:    Preparing for run 62 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 383 states
+Info:    Preparing for run 63 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 164 states
+Info:    Preparing for run 64 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 93 states
+Info:    Preparing for run 65 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 800 states
+Info:    Preparing for run 66 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 131 states
+Info:    Preparing for run 67 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 257 states
+Info:    Preparing for run 68 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 400 states
+Info:    Preparing for run 69 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 186 states
+Info:    Preparing for run 70 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 311 states
+Info:    Preparing for run 71 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 210 states
+Info:    Preparing for run 72 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 62 states
+Info:    Preparing for run 73 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 137 states
+Info:    Preparing for run 74 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 180 states
+Info:    Preparing for run 75 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 377 states
+Info:    Preparing for run 76 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 92 states
+Info:    Preparing for run 77 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 226 states
+Info:    Preparing for run 78 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 183 states
+Info:    Preparing for run 79 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 359 states
+Info:    Preparing for run 80 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 423 states
+Info:    Preparing for run 81 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 146 states
+Info:    Preparing for run 82 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 85 states
+Info:    Preparing for run 83 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 250 states
+Info:    Preparing for run 84 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 283 states
+Info:    Preparing for run 85 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 93 states
+Info:    Preparing for run 86 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 191 states
+Info:    Preparing for run 87 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 285 states
+Info:    Preparing for run 88 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 708 states
+Info:    Preparing for run 89 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 143 states
+Info:    Preparing for run 90 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 426 states
+Info:    Preparing for run 91 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 330 states
+Info:    Preparing for run 92 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 163 states
+Info:    Preparing for run 93 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 322 states
+Info:    Preparing for run 94 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 680 states
+Info:    Preparing for run 95 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 185 states
+Info:    Preparing for run 96 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 88 states
+Info:    Preparing for run 97 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 263 states
+Info:    Preparing for run 98 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 137 states
+Info:    Preparing for run 99 of control_CCRRT_psafe_0.990000
+Info:    CCRRT_psafe_0.990000: Starting planning with 1 states already in datastructure
+Info:    CCRRT_psafe_0.990000: Created 192 states
+Info:    Benchmark complete

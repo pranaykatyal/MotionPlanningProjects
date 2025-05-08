@@ -41,13 +41,25 @@ A key concept in chance-constrained motion planning is the use of the **covarian
 
 The **covariance ellipse** is a geometric interpretation of this matrix: it is an ellipse centered at the mean (expected) position, with its axes and shape determined by the eigenvalues and eigenvectors of the covariance matrix. The ellipse represents a region where the robot is likely to be found with a certain probability.
 
-In the CCRRT implementation, the planner uses the covariance ellipse to enforce chance constraints:
-- For each state, the planner computes the mean and covariance of the robot's position.
-- When checking for collisions with obstacles, the planner does not just check the mean position, but considers the entire covariance ellipse.
-- The planner calculates the probability that the robot's true position (given its uncertainty) would collide with an obstacle.
-- The parameter `psafe` specifies the minimum acceptable probability of being collision-free. The planner only accepts states and motions where the probability of collision is less than `1 - psafe`.
+---------------------------------------------------------------------------------------
+Covariance Growth: Meaning and Implications
+---------------------------------------------------------------------------------------
 
-This approach allows the planner to generate paths that are robust to uncertainty, keeping the robot away from obstacles by a margin that depends on both the amount of uncertainty and the desired safety level.
+As the robot moves and applies controls, process noise and model uncertainties cause the covariance of its state estimate to increase. This means the robot becomes less certain about its exact position over time and distance traveled. In mathematical terms, the covariance matrix grows due to the accumulation of noise in the motion model during state propagation.
+
+**Does covariance increase with time or distance?**
+- **Both:** In general, covariance increases with both elapsed time and distance traveled, because both represent the robot moving further from its last known position under the influence of process noise.
+- **Time:** If the robot is moving (even slowly), uncertainty accumulates over time due to continuous process noise.
+- **Distance:** The farther the robot travels, the more uncertainty accumulates, since each movement step introduces additional noise.
+- **In practice:** For a moving robot, time and distance are often correlated, so covariance typically grows as the robot moves further and as more time passes.
+
+**What does increasing covariance imply?**
+- **Larger Uncertainty:** The robot's predicted position is less precise; the region where it might be found (the covariance ellipse) becomes larger.
+- **Wider Safety Margins:** To maintain a required probability of safety (`psafe`), the planner must keep the robot farther from obstacles as uncertainty grows.
+- **More Conservative Paths:** The planner may generate longer or less direct paths to avoid areas where increased uncertainty could lead to a higher risk of collision.
+- **Planning Difficulty:** Higher covariance can make it harder to find feasible paths that satisfy the chance constraint, especially in cluttered environments.
+
+In summary, increasing covariance reflects growing uncertainty in the robot's state, requiring the planner to be more cautious to ensure safety under the specified chance constraints.
 
 ---------------------------------------------------------------------------------------
 Evaluation of Results: CC-RRT with Different p-safe Values

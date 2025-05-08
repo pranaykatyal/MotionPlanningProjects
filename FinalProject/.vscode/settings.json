@@ -3,6 +3,7 @@
         "limits": "cpp",
         "utility": "cpp",
         "iostream": "cpp",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "memory": "cpp"
     }
 }

@@ -646,12 +646,15 @@ CMakeFiles/CCRRT.dir/CCRRT.cpp.o
  /usr/local/include/ompl-1.6/ompl/control/planners/rrt/RRT.h
  /usr/local/include/ompl-1.6/ompl/control/planners/PlannerIncludes.h
  /usr/local/include/ompl-1.6/ompl/datastructures/NearestNeighbors.h
- /usr/local/include/ompl-1.6/ompl/control/spaces/RealVectorControlSpace.h
- /usr/local/include/ompl-1.6/ompl/base/objectives/PathLengthOptimizationObjective.h
+ /usr/local/include/ompl-1.6/ompl/tools/benchmark/Benchmark.h
+ /usr/local/include/ompl-1.6/ompl/geometric/SimpleSetup.h
+ /usr/local/include/ompl-1.6/ompl/geometric/PathSimplifier.h
  /usr/local/include/ompl-1.6/ompl/base/OptimizationObjective.h
  /usr/local/include/ompl-1.6/ompl/base/samplers/InformedStateSampler.h
  /usr/local/include/ompl-1.6/ompl/base/goals/GoalSampleableRegion.h
  /usr/local/include/ompl-1.6/ompl/base/goals/GoalRegion.h
+ /usr/local/include/ompl-1.6/ompl/control/spaces/RealVectorControlSpace.h
+ /usr/local/include/ompl-1.6/ompl/base/objectives/PathLengthOptimizationObjective.h
  /usr/local/include/ompl-1.6/ompl/tools/config/SelfConfig.h
  /usr/local/include/ompl-1.6/ompl/datastructures/NearestNeighborsSqrtApprox.h
  /usr/local/include/ompl-1.6/ompl/datastructures/NearestNeighborsLinear.h

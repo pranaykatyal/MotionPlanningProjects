@@ -1,0 +1,285 @@
+// latex format 
+\documentclass[conference]{IEEEtran}
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockoutsnt=footnotesize]{subfig}
+\usepackage[caption=false,font=footnotesize]{subfig}
+\usepackage{graphicx}/}}
+\graphicspath{{images/}}ymb,amsfonts}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{float}thm}
+\usepackage{algorithm}ode}
+\usepackage{algpseudocode}
+\sloppy
+\sloppygth\emergencystretch{2em}
+\setlength\emergencystretch{2em}
+\title{CC-RRT Implementation Project}
+\title{CC-RRT Implementation Project}
+\author{
+\author{uthorblockN{Pranay Katyal}
+  \IEEEauthorblockN{Pranay Katyal}
+  \andEauthorblockN{Ethan Zhong}
+  \IEEEauthorblockN{Ethan Zhong}
+  \andEauthorblockN{Manav Mepani}
+  \IEEEauthorblockN{Manav Mepani}
+  \andEauthorblockN{Harsh Chhajed}
+  \IEEEauthorblockN{Harsh Chhajed}
+}
+\begin{document}
+\begin{document}
+\maketitle
+\begin{abstract}
+\begin{abstract}s are increasingly expected to
+Autonomous robots are increasingly expected toplications ranging
+navigate complex, uncertain environments in applications ranging
+from self-driving cars to warehouse automation. Ensuring both
+safety and efficiency under uncertainty remains a formidable
+challenge. In this work, we present our implementation of
+the Chance-Constrained Rapidly-Exploring Random Tree (CC-010chance},
+RRT) algorithm, based on the formulation by \cite{luders2010chance},
+which integrates probabilistic constraints directly into sampling-
+based planning to guarantee collision risk below a user-defined
+threshold.
+Built within the Open Motion Planning Library (OMPL)
+Built within the Open Motion Planning Library (OMPL)butions
+in C++, our planner propagates Gaussian state distributionsa-
+throughout the RRT expansion process and performs fast proba-robabilistic
+bilistic collision checks, similar in spirit to the earlier probabilistic
+path planning work by \cite{blackmore2006probabilistic}. We benchmark
+our implementation in a prototypical 2D workspace featuringety
+convex obstacles, evaluating path length, probabilistic safety trials.
+(\(p_{\text{safe}}\)), runtime, and success rate over numerous trials.
+Our results demonstrate that CC-RRT achieves real-time
+Our results demonstrate that CC-RRT achieves real-timeey be-
+performance with tunable safety margins, replicating key be-
+haviors from the foundational literature. Readers will find in
+detailed methodology in Section II, implementation insights in
+Section II-B, and experimental analysis in Section IV.
+\end{abstract}
+\section{Introduction}
+\section{Introduction}increasingly deployed in complex
+Autonomous robots are increasingly deployed in complexe,
+environments where uncertainty arises from sensor noise,. Traditional
+actuator disturbances, and unpredictable obstacle motion. Traditional
+sampling-based planners such as Rapidly-Exploringl at efficient exploration but
+Random Trees (RRT)~\cite{lavalle1998rapidly} excel at efficient exploration but
+rely on deterministic collision checks, rendering them unsafe
+under stochastic disturbances or incomplete world models. A
+common remedy—tightening obstacle boundaries or inflatings
+robot footprints—induces excessive conservatism or demands
+expensive mixed-integer optimizations, compromising real-
+time performance.
+Chance constraints offer a principled alternative by bound-
+Chance constraints offer a principled alternative by bound-fined
+ing the probability of constraint violation below a user-defined
+threshold \(1 - p_{\text{safe}}\) through reasoning over stateobabilistic}. However, classical
+distributions instead of point estimates~\cite{blackmore2006probabilistic}. However, classical
+chance-constrained formulations for linear systems with Gaussian.
+noise lead to costly nonlinear or integer programs. Lüders et al.
+introduced the Chance-Constrained RRT (CC-RRT) algorithmnto the
+to integrate probabilistic feasibility checks directly into the
+RRT expansion process, using conditional-mean propagationt static
+and fast analytic bounds to certify collision risk against static
+or dynamic obstacles~\cite{luders2010chance}.
+In this work, we present a C++ implementation of CC-RRT
+In this work, we present a C++ implementation of CC-RRTpace
+within the OMPL framework and evaluate it in a 2D workspace
+populated by multiple convex obstacles. Our planner propa-er-
+gates Gaussian state distributions at each tree node and per-e
+forms rapid probabilistic collision checks, enabling real-time
+planning with tunable safety margins. The remainder of thisn
+report details our methodology in Section II, implementation
+in Section II-B, and experimental results in Section IV.
+\section{Methodology}
+\section{Methodology}nstrained RRT Overview}
+\subsection{Chance-Constrained RRT Overview}butions \((\mu, \Sigma)\). For each edge expansion, the mean and covariance are propagated according to the linear stochastic model:
+CC-RRT grows a tree of Gaussian state distributions \((\mu, \Sigma)\), where each node represents not just a point in state space, but a belief about the robot's position and its uncertainty. For each edge expansion, the mean and covariance are propagated according to the linear stochastic model:
+\begin{align}= A\,\mu_k + B\,u_k,\label{eq:mean}\\
+  \mu_{k+1} &= A\,\mu_k + B\,u_k,\label{eq:mean}\\:cov}
+  \Sigma_{k+1} &= A\,\Sigma_k\,A^T + P_w,\label{eq:cov}
+\end{align}\) is an adaptive process noise matrix that increases near obstacles and decreases in free space. A candidate state is accepted only if
+where \(A\) and \(B\) are the system matrices (identity for simple integrator dynamics), \(u_k\) is the control input, and \(P_w\) is an adaptive process noise matrix that increases near obstacles and decreases in free space. This propagation models the evolution of both the robot's state and its uncertainty due to process noise and disturbances.
+\Pr(\text{collision}) \;\le\; 1 - p_{\text{safe}},
+A candidate state is accepted into the tree only if
+\[forcing that the Gaussian belief ellipse does not overlap any
+  \Pr(\text{collision}) \;\le\; 1 - p_{\text{safe}},
+\]
+where \(p_{\text{safe}}\) is a user-defined probability threshold. This ensures that the probability of colliding with any obstacle along the edge is below the allowed risk, enforcing that the Gaussian belief ellipse does not overlap any obstacle’s safe region~\cite{luders2010chance}. This approach allows the planner to reason about safety in a principled, probabilistic way, rather than relying on conservative deterministic buffers.\subsection{Implementation Details}
+nner by:
+\subsection{Implementation Details}
+Our implementation builds on OMPL’s \texttt{RRT} planner and introduces several key enhancements to support chance constraints and uncertainty propagation:{Augmented State Space:}  
+\begin{itemize}ir plus timestamp, wrapped in a custom \texttt{StateWithCovariance} and tracked via a \texttt{std::map<StateKey,\dots>} for fast lookup.
+  \item \textbf{Augmented State Space:}  
+    Each node in the tree stores a mean–covariance pair, as well as a timestamp, encapsulated in a custom \texttt{StateWithCovariance} structure. These are tracked in a \texttt{std::map<StateKey,\dots>} for efficient lookup and updating of uncertainty information during planning.t the Kalman-filter prediction:
+  \item \textbf{Adaptive Propagation:}  
+    The \texttt{propagate()} function implements the Kalman-filter prediction step, updating both the mean and covariance of the state. The process noise matrix \(P_w\) is dynamically scaled based on the robot’s minimum distance to static obstacles—resulting in less process noise in open areas and more near obstacles, which reflects increased uncertainty in cluttered regions.\Sigma_{k+1} = A\,\Sigma_k\,A^T + P_w,
+  \item \textbf{CCRRTNode and Risk-Biased Expansion:}  
+    Each tree node is extended with \(\delta_{\max}\), the maximum per-step collision probability along its path, and a heuristic lower-bound cost-to-go (e.g., Euclidean distance to the goal). Node selection for expansion uses a risk-biased sampler (\texttt{selectNodeToExpandRiskBiased}), which probabilistically favors low-risk branches but still allows exploration of higher-risk areas. After a fixed number of random draws, the node with the minimum risk is chosen.ere \(P_w\) is scaled based on the robot’s minimum distance to static obstacles—less process noise in free space, more near obstacles.
+  \item \textbf{Branch-and-Bound Pruning:}  
+    Once a solution is found, the planner records its cost. Any node whose sum of cost-so-far and lower-bound-to-go exceeds the current best cost is immediately pruned (\texttt{shouldPrune}), improving efficiency by focusing computation on promising regions of the tree.e maximum per-step collision probability on its path) and a heuristic lower-bound cost-to-go. Node selection uses a risk-biased sampler that probabilistically favors low-risk branches while preserving exploration (function \texttt{selectNodeToExpandRiskBiased}) and falls back to the minimum-risk node after a few random draws.
+  \item \textbf{Probabilistic Collision Checker:}  
+    The \texttt{ChanceConstraintStateValidityChecker} class performs probabilistic collision checking. Each rectangular obstacle is approximated by its circumscribed circle. The checker computes the directional variance \(\sigma^2 = \mathbf{d}^\top \Sigma \mathbf{d}\) along the vector from the mean to the obstacle center, and requires \(\mathrm{costSoFar} + \mathrm{lowerBoundToGo}\) exceeds the current best cost is pruned immediately (function \texttt{shouldPrune}).
+    \[
+      \|\mathbf{d}\| > r_{\rm obs} + \beta\,\sigma,}, we approximate each rectangular obstacle by its circumscribed circle, compute the directional variance \(\sigma^2 = \mathbf{d}^\top \Sigma \mathbf{d}\) along the mean-to-obstacle vector \(\mathbf{d}\), then require
+      \quad \beta = \sqrt{2}\,\mathrm{erfc}^{-1}\bigl(2(1-p_{\rm safe})\bigr)
+    \]\|\mathbf{d}\| > r_{\rm obs} + \beta\,\sigma,
+    to guarantee the chance-constraint bound~\cite{luders2010chance}. This efficiently certifies that the probability of collision is below the allowed threshold.gl(2(1-p_{\rm safe})\bigr)
+  \item \textbf{OMPL Integration \& Parameters:}  
+    The planner registers its custom propagator, state-validity checker, and motion validator via OMPL’s \texttt{SpaceInformation::setStatePropagator}, \texttt{setStateValidityChecker}, and \texttt{setMotionValidator} interfaces. Exposed parameters include \(p_{\rm safe}\), propagation step size (0.1\,s), validity-checking resolution (2\% of the state-space diameter), goal bias (0.1, increased to 1.0 near the goal), and control-duration bounds (1–10 time steps). The planner is designed to be modular and easily extensible for further research. guarantee the chance-constraint bound~\cite{luders2010chance}.
+\end{itemize}
+cker, and motion validator via \texttt{SpaceInformation::setStatePropagator}, \texttt{setStateValidityChecker}, and \texttt{setMotionValidator}. Exposed parameters include \(p_{\rm safe}\), propagation step size (0.1\,s), validity-checking resolution (2\% of the state-space diameter), goal bias (0.1, increased to 1.0 near the goal), and control-duration bounds (1–10 time steps).
+\section{Experimental Setup}
+\subsection{Workspace and Obstacles}
+All experiments are conducted in a planar square region defined by\section{Experimental Setup}
+\begin{align*}stacles}
+  x, y & \in [-10,\,10],ar square region with
+\end{align*}
+implemented in OMPL as a \texttt{RealVectorStateSpace(2)} with bounds \([-10,10]\). The robot’s initial and target configurations arex, y \in [-10,\,10],
+\begin{align*}
+  \text{Start: }(x_{\mathrm{start}},\,y_{\mathrm{start}})=(-8,-8),\quadplemented in OMPL as a \texttt{RealVectorStateSpace(2)} with bounds \([-10,10]\). The robot’s initial and target configurations are given by
+  \text{Goal: }(x_{\mathrm{goal}},\,y_{\mathrm{goal}})=(0,0),
+\end{align*}\text{Start: }(x_{\mathrm{start}},\,y_{\mathrm{start}})=(-8,-8),\quad
+with a goal-region tolerance of \(\epsilon=0.25\) (any state within 0.25\,m of the goal is considered successful). The obstacles are seven static rectangles, with widths \(\{2.0,2.5,3.0,1.5,2.2,2.0,2.5\}\), heights \(\{1.0,1.8,1.2,2.5,2.0,1.5,1.7\}\), and centers placed along the line from start to goal, with lateral offsets \(\{-2.5,2.2,-1.7,2.7,-2.2,2.9,-2.8\}\). This arrangement creates a challenging, cluttered environment with narrow passages and varying obstacle densities, closely matching scenarios in the original CC-RRT literature.
+
+\begin{figure}[H]th a goal-region tolerance of \(\epsilon=0.25\) (any state within 0.25\,m of the goal is considered successful).
+  \centering
+  \includegraphics[width=0.40\textwidth]{obstacles_only.png}We deploy seven static rectangular obstacles. Their widths are \(\{2.0,2.5,3.0,1.5,2.2,2.0,2.5\}\), heights \(\{1.0,1.8,1.2,2.5,2.0,1.5,1.7\}\), and centres are placed along the line from start to goal with lateral offsets \(\{-2.5,2.2,-1.7,2.7,-2.2,2.9,-2.8\}\), as illustrated in Fig.~1. This scenario is identical to the one used in the code.
+  \caption{Cluttered 2D workspace: seven rectangular obstacles (gray), start at \((-8,-8)\) (green square) and goal at \((0,0)\) (gold star).}
+  \label{fig:scenario}\begin{figure}[H]
+\end{figure}
+aphics[width=0.40\textwidth]{obstacles_only.png}
+\subsection{State and Control Spaces}es (gray), start at \((-8,-8)\) (green square) and goal at \((0,0)\) (gold star).}
+The robot's state and control spaces are defined as follows:
+\begin{itemize}
+  \item \textbf{State space:} \(\mathbb{R}^2\) position \((x,y)\), bounded within \([-10,10]\) for both axes. This models a holonomic robot moving in a 2D plane.
+  \item \textbf{Control space:} \(\mathbb{R}^2\) velocity \((v_x,v_y)\), with each component bounded in \([-2,2]\). This allows the robot to move in any direction, subject to velocity limits.\subsection{State and Control Spaces}
+  \item \textbf{Propagation:} Each control input is held for an integer duration between 1 and 10 steps, with each step corresponding to a propagation time of \(\Delta t=0.1\) seconds. This models discrete-time control and allows for variable-length edge expansions in the tree.
+  \item \textbf{Goal bias:} The planner uses a goal bias of 0.1, meaning that 10\% of samples are drawn directly from the goal region. When the robot is within 0.5\,m of the goal, the bias is increased to 1.0 to encourage rapid convergence.{State space:} \(\mathbb{R}^2\) position \((x,y)\) with bounds \([-10,10]\).  
+  \item \textbf{Validity resolution:} State validity is checked at a resolution of 0.02 (2\% of the state-space diameter), ensuring fine-grained collision checking along each edge.).  
+\end{itemize}steps of \(\Delta t=0.1\)\,s.  
+
+\subsection{Chance-Constraint Parameters}
+The CC-RRT planner is evaluated with a range of safety thresholds:
+\begin{align*}
+  p_{\rm safe} & \in \{0.5,0.7,0.9,0.95,0.99\},\subsection{Chance-Constraint Parameters}
+\end{align*}y thresholds
+where each edge and node must satisfy \(\Pr(\text{collision})\le1-p_{\rm safe}\) using the probabilistic method described above. This allows us to systematically study the trade-off between path efficiency and safety as the risk tolerance is varied.
+p_{\rm safe} \in \{0.5,0.7,0.9,0.95,0.99\},
+\subsection{Planning Trials}
+For each value of \(p_{\rm safe}\) and for a baseline RRT (without chance constraints), we run \(N=10\) independent trials. Each trial is given a time limit of \(T_{\max}=10\) seconds, enforced using OMPL’s \texttt{timedPlannerTerminationCondition(10.0)}. If a solution is found within the time limit, it is recorded; otherwise, the trial is marked as a failure. This protocol enables robust statistical evaluation of planner performance under different safety requirements.aning each edge and node must satisfy \(\Pr(\text{collision})\le1-p_{\rm safe}\) using the method in Section II-B.
+
+\subsection{Evaluation Metrics}\subsection{Planning Trials}
+We evaluate planner performance using the following metrics:d a baseline RRT, we run \(N=10\) independent trials with a per-trial time limit \(T_{\max}=10\)\,s using OMPL’s \texttt{timedPlannerTerminationCondition(10.0)}. Solutions found within \(T_{\max}\) are recorded; otherwise the trial is marked a failure.
+\begin{itemize}
+  \item \textbf{Path length:} The total Euclidean length of the returned trajectory, computed as the sum of distances between consecutive states along the path.\subsection{Evaluation Metrics}
+  \item \textbf{Runtime:} The wall-clock planning time required to find the first valid solution, measured from the start of planning until a solution is found or the time limit is reached.
+  \item \textbf{Success rate:} The fraction of the \(N=10\) trials that successfully find a valid path under the chosen \(p_{\rm safe}\). This metric quantifies the reliability of the planner under different risk tolerances.itemize}
+\end{itemize}{Path length:} Total Euclidean length of the returned trajectory.
+All reported values in Section IV are averages over these trials, providing a comprehensive view of planner behavior across multiple runs and parameter settings.
+ valid path under the chosen \(p_{\rm safe}\).
+\section{Results}
+\subsection{Cluttered Static Environment}values in Section IV are averages over these trials.
+We evaluated CC-RRT in the 7-obstacle cluttered workspace (Fig.~1), performing 10 trials of each planner variant with a 15\,s planning budget using OMPL’s RRT implementation. Table~I summarizes average runtime, path duration, and success rate.
+\section{Results}
+\begin{figure}[H]ered Static Environment}
+  \centeringttered workspace (Fig.~1), performing 10 trials of each planner variant with a 15\,s planning budget using OMPL’s RRT implementation. Table~I summarizes average runtime, path duration, and success rate.
+  \includegraphics[width=0.4\textwidth]{images/image_11.png}
+  \caption{Sample CC-RRT tree and execution path in the cluttered environment.}\begin{figure}[H]
+  \label{fig:cluttered}
+\end{figure}aphics[width=0.4\textwidth]{images/image_11.png}
+tered environment.}
+
+The sample above showcases how a path gets planned, the path is showcased in Blue color, and when robot traverses it it becomes Red ( in the video ). since the psafe value was lower, the robot was able to go right through the obstacle cavity,  instead of trying to go around them as that much violations of psafe were allowed. 
+
+
+\begin{table}[H]The sample above showcases how a path gets planned, the path is showcased in Blue color, and when robot traverses it it becomes Red ( in the video ). since the psafe value was lower, the robot was able to go right through the obstacle cavity,  instead of trying to go around them as that much violations of psafe were allowed. 
+  \caption{Performance in the cluttered scenario (averaged over 10 trials).}
+  \centering
+  \begin{tabular}{lccc}\begin{table}[H]
+    \hlinermance in the cluttered scenario (averaged over 10 trials).}
+    Planner & \(p_{\rm safe}\) & Path Dur. (s) & Success Rate \\ \hline
+    CC-RRT  & 0.5             & 0.942         & 100\%        \\ular}{lccc}
+    CC-RRT  & 0.7             & 0.839         & 100\%        \\
+    CC-RRT  & 0.9             & 1.029         & 100\%        \\r & \(p_{\rm safe}\) & Path Dur. (s) & Success Rate \\ \hline
+    CC-RRT  & 0.95            & 0.734         & 100\%        \\
+    CC-RRT  & 0.99            & 0.808         & 100\%        \\ \hline
+  \end{tabular}
+\end{table}
+ \hline
+\paragraph{Analysis of CC-RRT Performance}  
+The experimental results in Table above demonstrate that CC-RRT achieves \textbf{100\% success rates} across all tested safety thresholds (\(p_{\rm safe} = 0.5\) to \(0.99\)) in cluttered environments, highlighting its reliability under probabilistic constraints. While path durations vary non-monotonically—ranging from \(0.734\:\mathrm{s}\) (\(p_{\rm safe}=0.95\)) to \(1.029\:\mathrm{s}\) (\(p_{\rm safe}=0.9\))—the planner does not exhibit a strict trade-off between safety and efficiency. For instance, stricter constraints like \(p_{\rm safe}=0.99\) yield paths nearly as short (\(0.808\:\mathrm{s}\)) as those under moderate thresholds (\(p_{\rm safe}=0.7\), \(0.839\:\mathrm{s}\)), suggesting adaptive risk-aware exploration effectively balances safety and path quality. These fluctuations may stem from RRT’s inherent stochasticity, but the consistent success rate confirms robustness in probabilistic collision checking and belief propagation, even with tighter safety margins.  
+
+\paragraph{Analysis of CC-RRT Performance}  
+% First two figures in a rownstrate that CC-RRT achieves \textbf{100\% success rates} across all tested safety thresholds (\(p_{\rm safe} = 0.5\) to \(0.99\)) in cluttered environments, highlighting its reliability under probabilistic constraints. While path durations vary non-monotonically—ranging from \(0.734\:\mathrm{s}\) (\(p_{\rm safe}=0.95\)) to \(1.029\:\mathrm{s}\) (\(p_{\rm safe}=0.9\))—the planner does not exhibit a strict trade-off between safety and efficiency. For instance, stricter constraints like \(p_{\rm safe}=0.99\) yield paths nearly as short (\(0.808\:\mathrm{s}\)) as those under moderate thresholds (\(p_{\rm safe}=0.7\), \(0.839\:\mathrm{s}\)), suggesting adaptive risk-aware exploration effectively balances safety and path quality. These fluctuations may stem from RRT’s inherent stochasticity, but the consistent success rate confirms robustness in probabilistic collision checking and belief propagation, even with tighter safety margins.  
+\begin{figure}[H]
+  \centering
+  \begin{minipage}{0.48\columnwidth}% First two figures in a row
+    \centering
+    \includegraphics[width=\linewidth]{images/path_generated_50.png}
+    \caption{\(p_{\rm safe}=0.5\)}ipage}{0.48\columnwidth}
+    \label{fig:psafe50}
+  \end{minipage}aphics[width=\linewidth]{images/path_generated_50.png}
+  \hfill
+  \begin{minipage}{0.48\columnwidth}
+    \centering
+    \includegraphics[width=\linewidth]{images/path_generated_70.png}
+    \caption{\(p_{\rm safe}=0.7\)}{minipage}{0.48\columnwidth}
+    \label{fig:psafe70}
+  \end{minipage}aphics[width=\linewidth]{images/path_generated_70.png}
+\end{figure}
+
+% Next two figures in a row
+\begin{figure}[H]
+  \centering
+  \begin{minipage}{0.48\columnwidth}% Next two figures in a row
+    \centering
+    \includegraphics[width=\linewidth]{images/path_generated_psafe90.png}
+    \caption{\(p_{\rm safe}=0.9\)}ipage}{0.48\columnwidth}
+    \label{fig:psafe90}
+  \end{minipage}aphics[width=\linewidth]{images/path_generated_psafe90.png}
+  \hfill
+  \begin{minipage}{0.48\columnwidth}
+    \centering
+    \includegraphics[width=\linewidth]{images/path_generated_psafe95.png}
+    \caption{\(p_{\rm safe}=0.95\)}{minipage}{0.48\columnwidth}
+    \label{fig:psafe95}
+  \end{minipage}aphics[width=\linewidth]{images/path_generated_psafe95.png}
+\end{figure}
+
+% Last figure centered
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\linewidth]{images/path_generated_psafe99.png}% Last figure centered
+  \caption{\(p_{\rm safe}=0.99\)}
+  \label{fig:psafe99}
+\end{figure}aphics[width=0.6\linewidth]{images/path_generated_psafe99.png}
+
+\subsection{Dynamic Obstacle Trial}
+We also ran trials with one moving obstacle. CC-RRT re-planned in real time and maintained the specified \(p_{\rm safe}\), demonstrating extensibility to dynamic settings~[1].
+
+\begin{figure}[H]\subsection{Dynamic Obstacle Trial}
+  \centeringobstacle. CC-RRT re-planned in real time and maintained the specified \(p_{\rm safe}\), demonstrating extensibility to dynamic settings~[1].
+  \includegraphics[width=0.45\textwidth]{images/dynamics.png}
+  \caption{CC-RRT planning with a moving obstacle.}\begin{figure}[H]
+  \label{fig:dynamic}
+\end{figure}aphics[width=0.45\textwidth]{images/dynamics.png}
+
+\section{Discussion}
+Our implementation of Chance-Constrained RRT demonstrates that incorporating probabilistic safety directly into the planning process is both practical and effective in moderately cluttered environments. Across all tested safety thresholds, the planner consistently found valid paths within the allotted time, with a 100\% success rate in the static scenario. This result validates the integration of Gaussian uncertainty propagation~\cite{blackmore2006probabilistic} and probabilistic collision checking~\cite{luders2010chance} into the RRT expansion process.
+
+As expected, increasing the safety threshold \(p_{\text{safe}}\) led to longer paths and greater clearance from obstacles, as seen in both the quantitative results and the trajectory plots in Fig.~\ref{fig:psafe_levels}. Higher values of \(p_{\text{safe}}\) enforce stricter constraints on allowable edge expansions, forcing the planner to explore more conservative regions of the workspace~\cite{luders2010chance,blackmore2006probabilistic}. \section{Discussion}
+f Chance-Constrained RRT demonstrates that incorporating probabilistic safety directly into the planning process is both practical and effective in moderately cluttered environments. Across all tested safety thresholds, the planner consistently found valid paths within the allotted time, with a 100\% success rate in the static scenario. This result validates the integration of Gaussian uncertainty propagation~\cite{blackmore2006probabilistic} and probabilistic collision checking~\cite{luders2010chance} into the RRT expansion process.
+The slight non-monotonicity in metrics like path duration between \(p_{\text{safe}} = 0.9\) and \(p_{\text{safe}} = 0.95\) may be attributed to randomness in the sampling process and the fixed number of trials. 
+As expected, increasing the safety threshold \(p_{\text{safe}}\) led to longer paths and greater clearance from obstacles, as seen in both the quantitative results and the trajectory plots in Fig.~\ref{fig:psafe_levels}. Higher values of \(p_{\text{safe}}\) enforce stricter constraints on allowable edge expansions, forcing the planner to explore more conservative regions of the workspace~\cite{luders2010chance,blackmore2006probabilistic}. 
+Our preliminary tests in environments with dynamic obstacles (Fig.~\ref{fig:dynamic}) also confirm CC-RRT's viability for real-time replanning. While our dynamic experiments were limited in scope, they suggest that the algorithm's probabilistic framework naturally extends to time-varying scenarios. 
+The slight non-monotonicity in metrics like path duration between \(p_{\text{safe}} = 0.9\) and \(p_{\text{safe}} = 0.95\) may be attributed to randomness in the sampling process and the fixed number of trials. 
+We have made a meaningful contribution to the OMPL library and created modular tools that enable experimentation with probabilistic safety-aware planning. Our results show that the algorithm is well-suited for settings where the environment is partially observable or odometry is noisy. 
+Our preliminary tests in environments with dynamic obstacles (Fig.~\ref{fig:dynamic}) also confirm CC-RRT's viability for real-time replanning. While our dynamic experiments were limited in scope, they suggest that the algorithm's probabilistic framework naturally extends to time-varying scenarios. 
+\section{Conclusion}
+This work presents a functional and extensible implementation of Chance-Constrained RRT within the OMPL framework, enabling real-time motion planning under uncertainty with tunable safety guarantees. Our planner augments RRT~\cite{lavalle1998rapidly} with Gaussian belief propagation and efficient probabilistic collision checks~\cite{blackmore2006probabilistic}, yielding safe trajectories without incurring the heavy computational costs of deterministic robust planning methods.We have made a meaningful contribution to the OMPL library and created modular tools that enable experimentation with probabilistic safety-aware planning. Our results show that the algorithm is well-suited for settings where the environment is partially observable or odometry is noisy. 
+
+Experimental results in cluttered 2D environments show that CC-RRT achieves a favorable trade-off between path efficiency and safety, maintaining real-time performance even as safety thresholds increase. Our findings replicate and extend the behaviors reported in foundational CC-RRT literature~\cite{luders2010chance}, offering practical evidence that chance-constrained methods are viable for real-world robotic systems.\section{Conclusion}
+ functional and extensible implementation of Chance-Constrained RRT within the OMPL framework, enabling real-time motion planning under uncertainty with tunable safety guarantees. Our planner augments RRT~\cite{lavalle1998rapidly} with Gaussian belief propagation and efficient probabilistic collision checks~\cite{blackmore2006probabilistic}, yielding safe trajectories without incurring the heavy computational costs of deterministic robust planning methods.
+% Bibliography
+\bibliographystyle{IEEEtran}Experimental results in cluttered 2D environments show that CC-RRT achieves a favorable trade-off between path efficiency and safety, maintaining real-time performance even as safety thresholds increase. Our findings replicate and extend the behaviors reported in foundational CC-RRT literature~\cite{luders2010chance}, offering practical evidence that chance-constrained methods are viable for real-world robotic systems.
+\bibliography{refs}
+\end{document}% Bibliography

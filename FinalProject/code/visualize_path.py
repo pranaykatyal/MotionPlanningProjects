@@ -160,13 +160,9 @@ def animate_car_path(obstacles, path, covariances, save_video=False):
             all_w.append(w)
             all_h.append(h)
 
-    min_x = min(all_x) - max(all_w, default=0) - 1
-    max_x = max(all_x) + max(all_w, default=0) + 1
-    min_y = min(all_y) - max(all_h, default=0) - 1
-    max_y = max(all_y) + max(all_h, default=0) + 1
-
-    ax.set_xlim(min_x, max_x)
-    ax.set_ylim(min_y, max_y)
+    # --- Set fixed bounds to [-10, 10] for both axes ---
+    ax.set_xlim(-10, 10)
+    ax.set_ylim(-10, 10)
 
     ax.set_xlabel('X')
     ax.set_ylabel('Y')

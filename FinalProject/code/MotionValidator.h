@@ -26,8 +26,6 @@
 #include <vector>
 #include "Obstacles.h"
 
-// Utility: Inverse Complementary Error Function
-// Used for chance constraint calculations (Gaussian confidence intervals)
 inline double erfcinv(double x) {
     if (x >= 2.0) return -std::numeric_limits<double>::infinity();
     if (x <= 0.0) return std::numeric_limits<double>::infinity();
@@ -43,11 +41,9 @@ inline double erfcinv(double x) {
     return (x < 1.0) ? p : -p;
 }
 
-// Move these lines above any use of ob::State
 namespace ob = ompl::base;
 namespace oc = ompl::control;
 
-// Full definition of StateKey
 struct StateKey {
     double x, y;
     bool operator<(const StateKey& other) const {
@@ -68,77 +64,50 @@ namespace CCRRTDetail {
     };
 }
 
-// Manages state uncertainty propagation and chance constraint checking
 class UncertaintyManager {
 public:
-    // Initialize with desired safety probability threshold
     UncertaintyManager(double psafe);
-
-    // Store uncertainty (mean and covariance) for a given state
     void storeUncertainty(const ob::State* state,
                           const Eigen::VectorXd& mean, const Eigen::MatrixXd& cov, double timestamp);
-
-    // Propagate uncertainty from one state to another using linear dynamics
     void propagateUncertainty(const ob::State* from, const ob::State* to,
                               const Eigen::MatrixXd& A, const Eigen::MatrixXd& B,
                               const Eigen::VectorXd& control, const Eigen::MatrixXd& Pw,
                               double deltaTime);
-
-    // Mark satisfiesChanceConstraints as const
     bool satisfiesChanceConstraints(const ob::State* state,
                                    const std::vector<Obstacle>& obstacles) const;
-
-    // Add timestamp to state uncertainty storage
     struct StateUncertainty {
         Eigen::VectorXd mean;
         Eigen::MatrixXd covariance;
         double timestamp;
     };
-
-    // Add this getter method
     const std::map<const ob::State*, StateUncertainty>& getStateUncertainty() const;
-
 private:
-    // Evaluate chance constraint for circular obstacles
     bool isCircleConstraintSatisfied(const Eigen::Vector2d& mean,
                                     const Eigen::Matrix2d& cov, const Obstacle& obs) const;
-
-    // Convert rectangular obstacles to circular for constraint checking
     bool isRectConstraintSatisfied(const Eigen::Vector2d& mean,
                                    const Eigen::Matrix2d& cov, const Obstacle& obs) const;
-
-    // Helper function to get dynamic obstacle position at time t
     Eigen::Vector2d getDynamicObstaclePosition(const Obstacle& obs, double time) const;
-
-    double psafe_;  // Probability threshold for safety constraints
+    double psafe_;
     std::map<const ob::State*, StateUncertainty> stateUncertainty_;
 };
 
-// Motion validator that incorporates uncertainty in collision checking
 class CCRRTMotionValidator : public ob::MotionValidator {
 public:
     CCRRTMotionValidator(const ob::SpaceInformationPtr& si, double psafe);
-
     void setObstacles(const std::vector<Obstacle>& obstacles);
-
     void setStateUncertainty(std::map<StateKey, CCRRTDetail::StateWithCovariance>* stateUncertainty);
-
     bool checkMotion(const ob::State* s1, const ob::State* s2) const override;
-
     bool checkMotion(const ob::State* s1, const ob::State* s2,
         std::pair<ob::State*, double>& lastValid) const override;
-
 private:
     double psafe_;
     std::vector<Obstacle> obstacles_;
     std::map<StateKey, CCRRTDetail::StateWithCovariance>* stateUncertainty_ = nullptr;
-
     bool isChanceConstraintSatisfied(const CCRRTDetail::StateWithCovariance& stateUnc,
                                      const Obstacle& obs) const {
         Eigen::Vector2d mean = stateUnc.mean.head<2>();
         Eigen::Matrix2d cov = stateUnc.covariance.block<2,2>(0, 0);
         if (!obs.isCircular()) {
-            // Rectangle: use circumscribed circle for chance constraint
             Eigen::Vector2d obsCenter = obs.getCenter();
             double obsRadius = std::hypot(obs.getWidth()/2, obs.getHeight()/2);
             Eigen::Vector2d diff = obsCenter - mean;
@@ -150,7 +119,6 @@ private:
             double beta = std::sqrt(2) * erfcinv(2 * (1 - psafe_));
             return dist > obsRadius + beta * sigma;
         } else {
-            // Fallback for circles (should not occur)
             Eigen::Vector2d diff = obs.getCenter() - mean;
             double dist = diff.norm();
             double directionalVar = (dist > 1e-6) ?

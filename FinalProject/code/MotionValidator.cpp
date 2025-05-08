@@ -20,12 +20,15 @@
 // Add these declarations
 extern std::vector<Obstacle> staticObstacles;
 
+// Store the uncertainty (mean, covariance, timestamp) for a given state.
 void UncertaintyManager::storeUncertainty(const ob::State* state, 
     const Eigen::VectorXd& mean, const Eigen::MatrixXd& cov, double timestamp) 
 {
     stateUncertainty_[state] = StateUncertainty{mean, cov, timestamp};
 }
 
+// Propagate uncertainty from 'from' state to 'to' state using linear dynamics.
+// A, B: system matrices; control: control input; Pw: process noise; deltaTime: time step.
 void UncertaintyManager::propagateUncertainty(const ob::State* from, const ob::State* to,
     const Eigen::MatrixXd& A, const Eigen::MatrixXd& B,
     const Eigen::VectorXd& control, const Eigen::MatrixXd& Pw,
@@ -35,6 +38,7 @@ void UncertaintyManager::propagateUncertainty(const ob::State* from, const ob::S
     double currentTime = (it != stateUncertainty_.end()) ? 
         it->second.timestamp : 0.0;
     
+    // If no uncertainty stored for 'from', initialize it.
     if (it == stateUncertainty_.end()) {
         int dim = A.rows();
         Eigen::VectorXd mean = Eigen::VectorXd::Zero(dim);
@@ -58,6 +62,8 @@ void UncertaintyManager::propagateUncertainty(const ob::State* from, const ob::S
     stateUncertainty_[to] = StateUncertainty{nextMean, nextCov, currentTime + deltaTime};
 }
 
+// Check if the state satisfies chance constraints for all obstacles.
+// Returns false if any obstacle violates the probabilistic constraint.
 bool UncertaintyManager::satisfiesChanceConstraints(const ob::State* state, 
     const std::vector<Obstacle>& obstacles) const
 {
@@ -82,6 +88,8 @@ bool UncertaintyManager::satisfiesChanceConstraints(const ob::State* state,
     return true;
 }
 
+// Compute the position of a dynamic obstacle at a given time.
+// For rectangles, assumes a simple linear motion in x.
 Eigen::Vector2d UncertaintyManager::getDynamicObstaclePosition(
     const Obstacle& obs, double time) const
 {
@@ -96,6 +104,8 @@ Eigen::Vector2d UncertaintyManager::getDynamicObstaclePosition(
     return obs.getCenter();
 }
 
+// Check chance constraint for a circular obstacle using mean/covariance.
+// Returns true if the probability of collision is below threshold.
 bool UncertaintyManager::isCircleConstraintSatisfied(const Eigen::Vector2d& mean, 
     const Eigen::Matrix2d& cov, const Obstacle& obs) const
 {
@@ -109,6 +119,7 @@ bool UncertaintyManager::isCircleConstraintSatisfied(const Eigen::Vector2d& mean
     return dist > obs.getRadius() + beta * sigma;
 }
 
+// Check chance constraint for a rectangular obstacle by approximating as a circle.
 bool UncertaintyManager::isRectConstraintSatisfied(const Eigen::Vector2d& mean, 
     const Eigen::Matrix2d& cov, const Obstacle& obs) const
 {
@@ -118,19 +129,23 @@ bool UncertaintyManager::isRectConstraintSatisfied(const Eigen::Vector2d& mean,
 }
 
 // Implementation of CCRRTMotionValidator
+// Checks if a motion (edge) between two states is valid under static obstacles and chance constraints.
 CCRRTMotionValidator::CCRRTMotionValidator(const ob::SpaceInformationPtr& si, double psafe)
     : ob::MotionValidator(si), psafe_(psafe)
 {
 }
 
+// Set the list of obstacles for this validator.
 void CCRRTMotionValidator::setObstacles(const std::vector<Obstacle>& obstacles) {
     obstacles_ = obstacles;
 }
 
+// Set the pointer to the state uncertainty map.
 void CCRRTMotionValidator::setStateUncertainty(std::map<StateKey, CCRRTDetail::StateWithCovariance>* stateUncertainty) {
     stateUncertainty_ = stateUncertainty;
 }
 
+// Main motion validation function: checks the path from s1 to s2 for collisions and chance constraints.
 bool CCRRTMotionValidator::checkMotion(const ob::State* s1, const ob::State* s2) const {
     double dist = si_->distance(s1, s2);
     unsigned int nd = std::max<unsigned int>(2, std::ceil(dist / si_->getStateValidityCheckingResolution()));
@@ -140,6 +155,7 @@ bool CCRRTMotionValidator::checkMotion(const ob::State* s1, const ob::State* s2)
         double ratio = (double)i / (double)nd;
         si_->getStateSpace()->interpolate(s1, s2, ratio, test);
 
+        // Check bounds
         if (!si_->satisfiesBounds(test)) {
             si_->freeState(test);
             return false;
@@ -148,6 +164,7 @@ bool CCRRTMotionValidator::checkMotion(const ob::State* s1, const ob::State* s2)
         const auto *st = test->as<ob::RealVectorStateSpace::StateType>();
         Eigen::Vector2d stateVec(st->values[0], st->values[1]);
 
+        // Find the closest timestamp for this state (for dynamic obstacles, if any)
         double t = 0.0;
         if (stateUncertainty_) {
             StateKey key = StateKey::fromState(test);
@@ -222,6 +239,7 @@ bool CCRRTMotionValidator::checkMotion(const ob::State* s1, const ob::State* s2)
     return true;
 }
 
+// Overload for OMPL's lastValid output (not used here, just calls main checkMotion).
 bool CCRRTMotionValidator::checkMotion(const ob::State* s1, const ob::State* s2,
     std::pair<ob::State*, double>& /*lastValid*/) const
 {
